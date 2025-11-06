@@ -1,0 +1,197 @@
+/* About Component Styles */
+.about {
+  padding: 5rem 1.5rem;
+  background-color: white;
+}
+
+.about.dark {
+  background-color: #111827;
+}
+
+.about-container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.about.dark .about-title {
+  color: white;
+}
+
+.about-content {
+  display: grid;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.about.dark .about-section-title {
+  color: white;
+}
+
+.about-text {
+  color: #4b5563;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.about.dark .about-text {
+  color: #d1d5db;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.skill-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #2563eb;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.skill-content {
+  color: #4b5563;
+}
+
+.about.dark .skill-content {
+  color: #d1d5db;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: #111827;
+  display: block;
+}
+
+.about.dark .skill-name {
+  color: white;
+}
+
+.skill-description {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid #bfdbfe;
+  padding-bottom: 1.5rem;
+}
+
+.timeline-item.education {
+  border-left-color: #bbf7d0;
+}
+
+.about.dark .timeline-item {
+  border-left-color: #1e3a8a;
+}
+
+.about.dark .timeline-item.education {
+  border-left-color: #166534;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -0.5rem;
+  top: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: #2563eb;
+  border-radius: 50%;
+}
+
+.timeline-item.education .timeline-dot {
+  background-color: #16a34a;
+}
+
+.timeline-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.about.dark .timeline-title {
+  color: white;
+}
+
+.timeline-company {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.timeline-item.education .timeline-company {
+  color: #16a34a;
+}
+
+.about.dark .timeline-company {
+  color: #60a5fa;
+}
+
+.about.dark .timeline-item.education .timeline-company {
+  color: #4ade80;
+}
+
+.timeline-duration {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.about.dark .timeline-duration {
+  color: #9ca3af;
+}
+
+.timeline-list {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.about.dark .timeline-list {
+  color: #d1d5db;
+}
+
+.timeline-list li {
+  margin-bottom: 0.25rem;
+}

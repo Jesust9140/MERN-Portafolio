@@ -1,0 +1,156 @@
+/* Hero Component Styles */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+}
+
+.hero.dark {
+  background: linear-gradient(to bottom right, #111827, #1f2937);
+}
+
+.hero-container {
+  max-width: 59rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-greeting {
+  font-size: 1.125rem;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.hero.dark .hero-greeting {
+  color: #60a5fa;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #111827;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+.hero.dark .hero-title {
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #374151;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.875rem;
+  }
+}
+
+.hero.dark .hero-subtitle {
+  color: #d1d5db;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: #4b5563;
+  line-height: 1.75;
+  max-width: 32rem;
+}
+
+.hero.dark .hero-description {
+  color: #9ca3af;
+}
+
+.hero-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-contact-label {
+  color: #374151;
+}
+
+.hero.dark .hero-contact-label {
+  color: #d1d5db;
+}
+
+.hero-email-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  width: fit-content;
+}
+
+.hero-email-button:hover {
+  background-color: #1d4ed8;
+}
+
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-wrapper {
+  position: relative;
+}
+
+.hero-image {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-image-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  transform: translate(1rem, 1rem);
+  width: 20rem;
+  height: 20rem;
+  background-color: #bfdbfe;
+  border-radius: 1rem;
+  opacity: 0.3;
+}
+
+.hero.dark .hero-image-bg {
+  background-color: #1e3a8a;
+}

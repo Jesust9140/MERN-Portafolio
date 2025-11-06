@@ -1,0 +1,20 @@
+{
+  "name": "mern-portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start-backend": "node back-end/server.js",
+    "dev-backend": "nodemon back-end/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.19.3",
+    "express-rate-limit": "^6.7.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
