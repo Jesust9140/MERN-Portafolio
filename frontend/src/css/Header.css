@@ -3,15 +3,15 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #cccccc;
   padding: 1rem 1.5rem;
 }
 
 .header.dark {
-  background-color: rgba(17, 24, 39, 0.9);
-  border-bottom-color: #374151;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-bottom-color: #444444;
 }
 
 .header-nav {
@@ -25,7 +25,7 @@
 .header-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #111827;
+  color: #000000;
 }
 
 .header.dark .header-logo {
@@ -44,42 +44,42 @@
 }
 
 .header-nav-link {
-  color: #374151;
+  color: #333333;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .header-nav-link:hover {
-  color: #2563eb;
+  color: #000000;
 }
 
 .header.dark .header-nav-link {
-  color: #d1d5db;
+  color: #cccccc;
 }
 
 .header.dark .header-nav-link:hover {
-  color: #60a5fa;
+  color: white;
 }
 
 .header-theme-toggle {
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: #f3f4f6;
-  color: #1f2937;
+  background-color: #eeeeee;
+  color: #000000;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .header-theme-toggle:hover {
-  background-color: #e5e7eb;
+  background-color: #dddddd;
 }
 
 .header.dark .header-theme-toggle {
-  background-color: #1f2937;
-  color: #e5e7eb;
+  background-color: #333333;
+  color: white;
 }
 
 .header.dark .header-theme-toggle:hover {
-  background-color: #374151;
+  background-color: #444444;
 }

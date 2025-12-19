@@ -16,7 +16,7 @@
 .certifications-title {
   font-size: 2.25rem;
   font-weight: bold;
-  color: #111827;
+  color: #000000;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -37,7 +37,7 @@
 }
 
 .certification-card {
-  background-color: #f9fafb;
+  background-color: #f5f5f5;
   border-radius: 0.75rem;
   padding: 1.5rem;
   transition: box-shadow 0.3s;
@@ -48,18 +48,13 @@
 }
 
 .certifications.dark .certification-card {
-  background-color: #1f2937;
-}
-
-.certification-badge {
-  font-size: 2.25rem;
-  margin-bottom: 1rem;
+  background-color: #1a1a1a;
 }
 
 .certification-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #111827;
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
@@ -68,30 +63,21 @@
 }
 
 .certification-issuer {
-  color: #2563eb;
+  color: #333333;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .certifications.dark .certification-issuer {
-  color: #60a5fa;
+  color: #cccccc;
 }
 
 .certification-date {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #666666;
   margin-bottom: 0.75rem;
 }
 
 .certifications.dark .certification-date {
-  color: #9ca3af;
-}
-
-.certification-description {
-  color: #4b5563;
-  font-size: 0.875rem;
-}
-
-.certifications.dark .certification-description {
-  color: #d1d5db;
+  color: #999999;
 }
