@@ -4,7 +4,8 @@ const Experience = () => {
   const [activeTab, setActiveTab] = useState('work');
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState({ technical: [], professional: [] });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch data from backend
@@ -17,37 +18,12 @@ const Experience = () => {
       setExperience(experienceData);
       setEducation(educationData);
       setSkills(skillsData);
+      setLoading(false);
     })
     .catch(error => {
       console.error('Error fetching data:', error);
-      // Fallback data
-      setExperience([
-        {
-          id: 1,
-          company: "Samsung",
-          position: "Samsung Experience Consultant",
-          duration: "Jan 2022 - Present",
-          responsibilities: [
-            "Developed strong communication skills and conflict resolution techniques.",
-            "Troubleshoot software and computer peripherals, Active Directory and Group Policy.",
-            "Created my own selling techniques and pitches for Samsung products.",
-            "Provided technical support for computers, printers, and peripherals."
-          ]
-        }
-      ]);
-      setEducation([
-        {
-          id: 1,
-          institution: "General Assembly Bootcamp",
-          degree: "Software Engineer Certificate",
-          duration: "2024 - Present",
-          details: [
-            "Learned full-stack development for complete web applications.",
-            "Focused on both front-end and back-end technologies.",
-            "Tools: JavaScript, HTML, CSS, Node.js, Express, MongoDB, React."
-          ]
-        }
-      ]);
+      setLoading(false);
+    });
       setSkills([
         "JavaScript - My go-to language for both frontend and backend development",
         "React - I love building interactive UIs and this portfolio showcases my React skills",

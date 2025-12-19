@@ -1,26 +1,18 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
-//Middlware 
-app.use(helmet());
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-//rate limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
-  message: 'Too many requests from this IP, please try again later.'
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'Portfolio API is running' });
 });
-app.use(limiter);
-
 
 //routes 
 app.get('/api/portfolio', (req, res) => {
@@ -39,38 +31,47 @@ app.get('/api/experience', (req, res) => {
   res.json([
     {
       id: 1,
-      company: "Samsung",
-      position: "Samsung Experience Consultant",
-      duration: "Jan 2022 - Present",
+      company: "2020Companies",
+      position: "Lead Samsung Experience Consultant (Lead SEC)",
+      duration: "March 2022 - Present",
+      location: "Brooklyn, NY",
       responsibilities: [
-        "Developed strong communication skills and conflict resolution techniques to handle challenging customer interactions.",
-        "Troubleshoot software and computer peripherals, Active Directory and Group Policy.",
-        "Created my own selling techniques and pitches for Samsung products.",
-        "Provided technical support for computers, printers, and peripherals."
+        "Led and supported a team of five Samsung Experience Consultants across four high-traffic Best Buy locations in Brooklyn and Manhattan.",
+        "Served as the primary escalation point for complex customer issues, product questions, and device troubleshooting.",
+        "Conducted weekly coaching sessions and 1:1 performance reviews focused on communication quality, issue resolution, and customer experience consistency.",
+        "Delivered hands-on demonstrations of Samsung devices and ecosystem integrations, translating technical features into clear, real-world use cases.",
+        "Coordinated with Samsung and Best Buy leadership to execute live events, in-store trainings, and technical walkthroughs.",
+        "Maintained top regional performance for three consecutive years through consistent KPI achievement and strong team development."
       ]
     },
     {
       id: 2,
       company: "2020Companies",
-      position: "Sales Samsung Experience Consultant",
-      duration: "Aug 10, 2022 - Jan 15, 2025",
+      position: "Samsung Technical Support Consultant (in-store)",
+      duration: "Jan 2022 - Mar 2022",
+      location: "Garden City, NY",
       responsibilities: [
-        "Managed revenue growth, metrics, and 30/60/90 plans.",
-        "Collaborated with Samsung, 2020Companies, and BestBuy CEOs.",
-        "Maintained a 95% goal minimum, achieving #1 in the U.S.",
-        "Attended exclusive Samsung events as a top performer."
+        "Acted as the first point of contact for walk-in customers, providing technical guidance, device explanations, and hands-on demonstrations.",
+        "Diagnosed customer needs and recommended appropriate devices, configurations, and ecosystem solutions.",
+        "Communicated technical concepts clearly to non-technical users, building trust and ensuring positive customer outcomes.",
+        "Collaborated with cross-department teams to provide consistent, end-to-end customer support.",
+        "Recognized for reliability, communication skills, and ability to quickly build rapport with customers."
       ]
     },
     {
       id: 3,
-      company: "BestBuy",
-      position: "Geek Squad Agent",
-      duration: "Oct 2020 - Jan 2022",
+      company: "Best Buy",
+      position: "Geek Squad Consultation Agent (CA)",
+      duration: "Sept 2020 - Jan 2022",
+      location: "Brooklyn, NY",
       responsibilities: [
-        "Provided technical support for computers, phones, and tablets.",
-        "Enhanced sales and communication skills by promoting memberships.",
-        "Worked collaboratively in a fast-paced environment with physical duties.",
-        "Built expertise in operating systems: macOS, OneUI, Linux."
+        "Provided Tier 1 technical support for customer devices, including smartphones, laptops, and peripherals.",
+        "Diagnosed hardware, software, and connectivity issues using Geek Squad and Apple diagnostic tools (GSX, GSX2, ATLAS).",
+        "Supported Windows, macOS, and basic Linux environments, assisting users with OS configuration and troubleshooting.",
+        "Assisted customers with productivity tools, including Microsoft Word, Excel, and OneDrive.",
+        "Documented issues, troubleshooting steps, and resolutions according to Geek Squad service standards.",
+        "Delivered clear explanations and preventative recommendations to help customers avoid recurring technical issues.",
+        "Maintained strong customer satisfaction by communicating technical issues effectively, even when delivering unfavorable outcomes."
       ]
     }
   ]);
@@ -80,27 +81,55 @@ app.get('/api/education', (req, res) => {
   res.json([
     {
       id: 1,
-      institution: "General Assembly Bootcamp",
-      degree: "Software Engineer Certificate",
-      duration: "2024 - Present",
+      institution: "Google IT Support Professional Certificate",
+      degree: "IT Support & Systems Fundamentals",
+      duration: "8-Month Program",
+      location: "Brooklyn, NY",
       details: [
-        "Learned full-stack development for complete web applications.",
-        "Focused on both front-end and back-end technologies.",
-        "Emphasized version control, TDD, and algorithmic problem-solving.",
-        "Tools: JavaScript, HTML, CSS, Node.js, Express, MongoDB, React."
+        "Completed a Google-developed IT support program covering troubleshooting methodologies and customer service best practices.",
+        "Mastered networking fundamentals, operating systems, system administration, and security.",
+        "Reinforced learning through hands-on labs and practical exercises."
       ]
     },
     {
       id: 2,
-      institution: "Spring Creek Community High School",
-      degree: "High School Diploma",
-      duration: "2013 – 2022",
+      institution: "Spring Creek Community School",
+      degree: "Arts & Technologies",
+      duration: "Sept 2016 - July 2020",
+      location: "Brooklyn, NY",
       details: [
-        "Completed AP Computer Science (Java).",
-        "Participated in coding clubs and tech workshops.",
-        "Created mini web projects using HTML/CSS.",
-        "Excelled in logic, math, and structured programming fundamentals."
+        "Concentrations: Critical Thinking, New Technologies, Algebra I & II",
+        "Related Coursework: HTML/CSS, NODE"
       ]
+    }
+  ]);
+});
+
+app.get('/api/certificates', (req, res) => {
+  res.json([
+    {
+      id: 1,
+      name: "Technical Support Fundamentals",
+      issuer: "Google (Coursera)",
+      date: "Dec 2025"
+    },
+    {
+      id: 2,
+      name: "Introduction to Cyber Attacks",
+      issuer: "New York University (Coursera)",
+      date: "Feb 2025"
+    },
+    {
+      id: 3,
+      name: "Programming with JavaScript",
+      issuer: "Meta (Coursera)",
+      date: "Feb 2025"
+    },
+    {
+      id: 4,
+      name: "Introduction to Front-End Development",
+      issuer: "Meta (Coursera)",
+      date: "Jan 2023"
     }
   ]);
 });
@@ -142,20 +171,21 @@ app.get('/api/projects', (req, res) => {
 
 
 app.get('/api/skills', (req, res) => {
-  res.json([
-    "JavaScript - My go-to language for both frontend and backend development",
-    "React - I love building interactive UIs and this portfolio showcases my React skills",
-    "Node.js & Express - Built the backend API for this portfolio to serve dynamic content",
-    "MongoDB - Used for storing portfolio data, though this project uses in-memory data",
-    "HTML & CSS - Foundation skills I use daily, plus Tailwind CSS for modern styling",
-    "Git & GitHub - Version control is essential, all my projects are on GitHub",
-    "RESTful APIs - Designed and built the API endpoints you see working in this portfolio",
-    "Responsive Design - This site works great on mobile, tablet, and desktop",
-    "Dark Mode Implementation - I added the theme toggle you see in the header",
-    "MERN Stack - This entire portfolio is a MERN application I built from scratch",
-    "Customer Relations - From my Samsung experience, I know how to communicate effectively",
-    "Problem Solving - I enjoy debugging and finding creative solutions to technical challenges"
-  ]);
+  res.json({
+    technical: [
+      "HTML, CSS, JavaScript, React",
+      "Node.js, Express, MongoDB, Mongoose",
+      "Windows & Linux fundamentals, OS concepts",
+      "TCP/IP, DNS, basic networking & connectivity troubleshooting",
+      "npm, REST APIs, debugging"
+    ],
+    professional: [
+      "Customer Support & Technical Communication",
+      "Technical Troubleshooting & Issue Resolution",
+      "KPI Tracking, Reporting, & Documentation",
+      "Team Leadership, Training, & Mentorship"
+    ]
+  });
 });
 
 app.listen(PORT, () => {

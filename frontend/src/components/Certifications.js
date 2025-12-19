@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../css/Certifications.css';
 
 const Certifications = () => {
-  const [isDark, setIsDark] = useState(true); // Default to dark
+  const [isDark, setIsDark] = useState(true);
+  const [certificates, setCertificates] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
@@ -16,33 +18,22 @@ const Certifications = () => {
     return () => observer.disconnect();
   }, []);
 
-  const certifications = [
-    {
-      id: 1,
-      title: "Software Engineer Certificate",
-      issuer: "General Assembly",
-      date: "2024 - Present",
-      description: "Full-stack development bootcamp covering MERN stack",
-      badge: "🎓"
-    },
-    {
-      id: 2,
-      title: "Samsung Experience Consultant",
-      issuer: "Samsung Certified",
-      date: "2022 - Present",
-      description: "Technical support and customer relations certification",
-      badge: "📱"
-    },
-    {
-      id: 3,
-      title: "Geek Squad Agent",
-      issuer: "Best Buy Certified",
-      date: "2020 - 2022",
-      description: "Technical support for computers, phones, and tablets",
-      badge: "🛠️"
-    } 
-    //More buttons can be added here
-  ];
+  useEffect(() => {
+    fetch('http://localhost:5000/api/certificates')
+      .then(res => res.json())
+      .then(data => {
+        setCertificates(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching certificates:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <section id="certifications" className="certifications">Loading...</section>;
+  }
 
   return (
     <section id="certifications" className={`certifications ${isDark ? 'dark' : ''}`}>
@@ -52,20 +43,16 @@ const Certifications = () => {
         </h2>
         
         <div className="certifications-grid">
-          {certifications.map((cert) => (
+          {certificates.map((cert) => (
             <div key={cert.id} className="certification-card">
-              <div className="certification-badge">{cert.badge}</div>
               <h3 className="certification-title">
-                {cert.title}
+                {cert.name}
               </h3>
               <p className="certification-issuer">
                 {cert.issuer}
               </p>
               <p className="certification-date">
                 {cert.date}
-              </p>
-              <p className="certification-description">
-                {cert.description}
               </p>
             </div>
           ))}

@@ -4,7 +4,7 @@ import '../css/About.css';
 const About = () => {
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState({ technical: [], professional: [] });
   const [isDark, setIsDark] = useState(true); // Default to dark
 
   useEffect(() => {
@@ -60,14 +60,21 @@ const About = () => {
           ]
         }
       ]);
-      setSkills([
-        "JavaScript - My go-to language for both frontend and backend development",
-        "React - I love building interactive UIs and this portfolio showcases my React skills",
-        "Node.js & Express - Built the backend API for this portfolio to serve dynamic content",
-        "MongoDB - Used for storing portfolio data, though this project uses in-memory data",
-        "HTML & CSS - Foundation skills I use daily, plus Tailwind CSS for modern styling",
-        "Git & GitHub - Version control is essential, all my projects are on GitHub"
-      ]);
+      setSkills({
+        technical: [
+          "HTML, CSS, JavaScript, React",
+          "Node.js, Express, MongoDB, Mongoose",
+          "Windows & Linux fundamentals, OS concepts",
+          "TCP/IP, DNS, basic networking & connectivity troubleshooting",
+          "npm, REST APIs, debugging"
+        ],
+        professional: [
+          "Customer Support & Technical Communication",
+          "Technical Troubleshooting & Issue Resolution",
+          "KPI Tracking, Reporting, & Documentation",
+          "Team Leadership, Training, & Mentorship"
+        ]
+      });
     });
   }, []);
 
@@ -100,21 +107,28 @@ const About = () => {
             {/* Skills */}
             <div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Technologies I Work With
+                Technical Skills
               </h3>
               <div className="space-y-3">
-                {skills.slice(0, 6).map((skill, index) => (
+                {skills.technical && skills.technical.map((skill, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                     <div className="text-gray-600 dark:text-gray-300">
-                      <span className="font-medium text-gray-900 dark:text-white">
-                        {skill.split(' - ')[0]}
-                      </span>
-                      {skill.includes(' - ') && (
-                        <span className="block text-sm mt-1">
-                          {skill.split(' - ')[1]}
-                        </span>
-                      )}
+                      {skill}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 mt-8">
+                Professional Skills
+              </h3>
+              <div className="space-y-3">
+                {skills.professional && skills.professional.map((skill, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="text-gray-600 dark:text-gray-300">
+                      {skill}
                     </div>
                   </div>
                 ))}
