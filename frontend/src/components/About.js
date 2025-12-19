@@ -1,19 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../css/About.css';
 
 const About = () => {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-    
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
 
   const experience = [
     {

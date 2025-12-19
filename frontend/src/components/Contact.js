@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../css/Contact.css';
 
 const Contact = () => {
-  const [isDark, setIsDark] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,17 +9,6 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-    
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +23,8 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

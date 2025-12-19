@@ -1,19 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../css/Footer.css';
 
 const Footer = () => {
-  const [isDark, setIsDark] = useState(true); // Default to dark
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-    
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <footer className="footer">
