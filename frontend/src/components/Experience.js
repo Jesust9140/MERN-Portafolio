@@ -1,4 +1,202 @@
 import React, { useState } from 'react';
+import '../css/Experience.css';
+
+const Experience = () => {
+  const [activeTab, setActiveTab] = useState('work');
+
+  const experience = [
+    {
+      id: 1,
+      company: "2020Companies",
+      position: "Lead Samsung Experience Consultant (Lead SEC)",
+      duration: "March 2022 - Present",
+      location: "Brooklyn, NY",
+      responsibilities: [
+        "Led and supported a team of five Samsung Experience Consultants across four high-traffic Best Buy locations in Brooklyn and Manhattan.",
+        "Served as the primary escalation point for complex customer issues, product questions, and device troubleshooting.",
+        "Conducted weekly coaching sessions and 1:1 performance reviews focused on communication quality, issue resolution, and customer experience consistency.",
+        "Delivered hands-on demonstrations of Samsung devices and ecosystem integrations, translating technical features into clear, real-world use cases.",
+        "Coordinated with Samsung and Best Buy leadership to execute live events, in-store trainings, and technical walkthroughs.",
+        "Maintained top regional performance for three consecutive years through consistent KPI achievement and strong team development."
+      ]
+    },
+    {
+      id: 2,
+      company: "2020Companies",
+      position: "Samsung Technical Support Consultant (in-store)",
+      duration: "Jan 2022 - Mar 2022",
+      location: "Garden City, NY",
+      responsibilities: [
+        "Acted as the first point of contact for walk-in customers, providing technical guidance, device explanations, and hands-on demonstrations.",
+        "Diagnosed customer needs and recommended appropriate devices, configurations, and ecosystem solutions.",
+        "Communicated technical concepts clearly to non-technical users, building trust and ensuring positive customer outcomes.",
+        "Collaborated with cross-department teams to provide consistent, end-to-end customer support.",
+        "Recognized for reliability, communication skills, and ability to quickly build rapport with customers."
+      ]
+    },
+    {
+      id: 3,
+      company: "Best Buy",
+      position: "Geek Squad Consultation Agent (CA)",
+      duration: "Sept 2020 - Jan 2022",
+      location: "Brooklyn, NY",
+      responsibilities: [
+        "Provided Tier 1 technical support for customer devices, including smartphones, laptops, and peripherals.",
+        "Diagnosed hardware, software, and connectivity issues using Geek Squad and Apple diagnostic tools (GSX, GSX2, ATLAS).",
+        "Supported Windows, macOS, and basic Linux environments, assisting users with OS configuration and troubleshooting.",
+        "Assisted customers with productivity tools, including Microsoft Word, Excel, and OneDrive.",
+        "Documented issues, troubleshooting steps, and resolutions according to Geek Squad service standards.",
+        "Delivered clear explanations and preventative recommendations to help customers avoid recurring technical issues.",
+        "Maintained strong customer satisfaction by communicating technical issues effectively, even when delivering unfavorable outcomes."
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      id: 1,
+      institution: "Google IT Support Professional Certificate",
+      degree: "IT Support & Systems Fundamentals",
+      duration: "8-Month Program",
+      location: "Brooklyn, NY",
+      details: [
+        "Completed a Google-developed IT support program covering troubleshooting methodologies and customer service best practices.",
+        "Mastered networking fundamentals, operating systems, system administration, and security.",
+        "Reinforced learning through hands-on labs and practical exercises."
+      ]
+    },
+    {
+      id: 2,
+      institution: "Spring Creek Community School",
+      degree: "Arts & Technologies",
+      duration: "Sept 2016 - July 2020",
+      location: "Brooklyn, NY",
+      details: [
+        "Concentrations: Critical Thinking, New Technologies, Algebra I & II",
+        "Related Coursework: HTML/CSS, NODE"
+      ]
+    }
+  ];
+
+  const skills = {
+    technical: [
+      "HTML, CSS, JavaScript, React",
+      "Node.js, Express, MongoDB, Mongoose",
+      "Windows & Linux fundamentals, OS concepts",
+      "TCP/IP, DNS, basic networking & connectivity troubleshooting",
+      "npm, REST APIs, debugging"
+    ],
+    professional: [
+      "Customer Support & Technical Communication",
+      "Technical Troubleshooting & Issue Resolution",
+      "KPI Tracking, Reporting, & Documentation",
+      "Team Leadership, Training, & Mentorship"
+    ]
+  };
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'work':
+        return (
+          <div className="experience-timeline">
+            {experience.map((job) => (
+              <div key={job.id} className="timeline-entry">
+                <span className="timeline-marker"></span>
+                <div className="timeline-body">
+                  <div className="timeline-duration">{job.duration}</div>
+                  <h3 className="timeline-title">
+                    {job.company} <span className="timeline-subtitle">({job.position})</span>
+                  </h3>
+                  <ul className="timeline-items">
+                    {job.responsibilities.map((resp, index) => (
+                      <li key={index}>{resp}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      case 'education':
+        return (
+          <div className="experience-timeline">
+            {education.map((edu) => (
+              <div key={edu.id} className="timeline-entry">
+                <span className="timeline-marker"></span>
+                <div className="timeline-body">
+                  <div className="timeline-duration">{edu.duration}</div>
+                  <h3 className="timeline-title">
+                    {edu.institution} <span className="timeline-subtitle">({edu.degree})</span>
+                  </h3>
+                  <ul className="timeline-items">
+                    {edu.details.map((detail, index) => (
+                      <li key={index}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      case 'skills':
+        return (
+          <div className="skills-content">
+            <div className="timeline-entry">
+              <span className="timeline-marker"></span>
+              <div className="timeline-body">
+                <h3 className="skills-heading">Technologies I Work With</h3>
+                <p className="skills-description">
+                  Here are the technologies I'm passionate about and use regularly. This portfolio itself demonstrates many of these skills!
+                </p>
+                <div className="skills-list">
+                  {skills.technical.map((skill, index) => (
+                    <div key={index} className="skill-item">
+                      <span className="skill-label">{skill.split(' - ')[0]}</span>
+                      {skill.includes(' - ') && (
+                        <span className="skill-detail"> - {skill.split(' - ')[1]}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <section id="experience" className="experience-section">
+      <div className="experience-container">
+        <div className="experience-tabs">
+          <button
+            onClick={() => setActiveTab('work')}
+            className={`tab-button ${activeTab === 'work' ? 'active' : ''}`}
+          >
+            Work
+          </button>
+          <button
+            onClick={() => setActiveTab('education')}
+            className={`tab-button ${activeTab === 'education' ? 'active' : ''}`}
+          >
+            Education
+          </button>
+          <button
+            onClick={() => setActiveTab('skills')}
+            className={`tab-button ${activeTab === 'skills' ? 'active' : ''}`}
+          >
+            Skills
+          </button>
+        </div>
+        {renderContent()}
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
 
 const Experience = () => {
   const [activeTab, setActiveTab] = useState('work');

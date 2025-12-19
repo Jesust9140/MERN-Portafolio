@@ -1,64 +1,250 @@
-/* About Component Styles */
-.about {
-  padding: 3rem 1.5rem;
-  background-color: white;
+/* About Section */
+.about-section {
+  padding: 80px 24px;
+  background-color: #ffffff;
+  transition: background-color 0.3s;
 }
 
-.about.dark {
+html.dark .about-section {
   background-color: #000000;
 }
 
 .about-container {
-  max-width: 72rem;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .about-title {
-  font-size: 2.25rem;
+  font-size: 36px;
   font-weight: bold;
-  color: #000000;
-  margin-bottom: 2rem;
+  color: #1f2937;
+  margin-bottom: 48px;
   text-align: center;
+  transition: color 0.3s;
 }
 
-.about.dark .about-title {
-  color: white;
+html.dark .about-title {
+  color: #ffffff;
 }
 
-.about-content {
+.about-grid {
   display: grid;
-  gap: 2.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
 }
 
-@media (min-width: 1024px) {
-  .about-content {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 }
 
-.about-section {
+/* Left Column */
+.about-left {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 32px;
 }
 
-.about-section-title {
-  font-size: 1.5rem;
+.about-journey {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-subtitle {
+  font-size: 24px;
   font-weight: 600;
-  color: #000000;
-  margin-bottom: 1rem;
+  color: #1f2937;
+  margin-bottom: 16px;
+  transition: color 0.3s;
 }
 
-.about.dark .about-section-title {
-  color: white;
+html.dark .about-subtitle {
+  color: #ffffff;
 }
 
 .about-text {
-  color: #555555;
-  line-height: 1.75;
-  margin-bottom: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+  transition: color 0.3s;
 }
 
-.about.dark .about-text {
-  color: #cccccc;
+html.dark .about-text {
+  color: #d1d5db;
+}
+
+/* Skills Section */
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.skill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+  transition: background-color 0.3s;
+}
+
+.skill-dot.technical {
+  background-color: #2563eb;
+}
+
+.skill-dot.professional {
+  background-color: #16a34a;
+}
+
+.skill-text {
+  color: #4b5563;
+  transition: color 0.3s;
+}
+
+html.dark .skill-text {
+  color: #d1d5db;
+}
+
+.skills-professional-title {
+  margin-top: 32px;
+}
+
+/* Right Column - Timeline */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-left: 2px solid #bfdbfe;
+  padding-left: 24px;
+  transition: border-color 0.3s;
+}
+
+html.dark .timeline {
+  border-left-color: #1e3a8a;
+}
+
+.timeline.timeline-education {
+  border-left-color: #bbf7d0;
+}
+
+html.dark .timeline.timeline-education {
+  border-left-color: #064e3b;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -13px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+html.dark .timeline-dot {
+  border-color: #000000;
+}
+
+.timeline-item:last-child .timeline-dot {
+  background-color: #2563eb;
+}
+
+.timeline.timeline-education .timeline-dot.education-dot {
+  background-color: #16a34a;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeline-position,
+.timeline-degree {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  transition: color 0.3s;
+}
+
+html.dark .timeline-position,
+html.dark .timeline-degree {
+  color: #ffffff;
+}
+
+.timeline-company,
+.timeline-school {
+  color: #2563eb;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+html.dark .timeline-company,
+html.dark .timeline-school {
+  color: #60a5fa;
+}
+
+.timeline.timeline-education .timeline-school {
+  color: #16a34a;
+}
+
+html.dark .timeline.timeline-education .timeline-school {
+  color: #4ade80;
+}
+
+.timeline-duration {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+html.dark .timeline-duration {
+  color: #9ca3af;
+}
+
+.timeline-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #4b5563;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+html.dark .timeline-list {
+  color: #d1d5db;
+}
+
+.timeline-list li {
+  margin: 0;
 }

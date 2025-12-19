@@ -1,2 +1,42 @@
-/* App styles - minimal, let components handle styling */
+/* Global App Styles */
+:root {
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #000000;
+  --color-text-light: #000000;
+  --color-text-dark: #ffffff;
+  --color-border-light: #e5e7eb;
+  --color-border-dark: #404040;
+  --transition-speed: 0.3s;
+}
 
+.app {
+  min-height: 100vh;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+html.dark .app {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -93,25 +93,21 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 px-6 bg-white dark:bg-black">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-          About Me
-        </h2>
+    <section id="about" className="about-section">
+      <div className="about-container">
+        <h2 className="about-title">About Me</h2>
         
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="about-grid">
           {/* Personal Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                My Journey
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+          <div className="about-left">
+            <div className="about-journey">
+              <h3 className="about-subtitle">My Journey</h3>
+              <p className="about-text">
                 Throughout my career, I've developed strong expertise in full-stack development, 
                 customer relations, and technical support. I have hands-on experience delivering 
                 web applications and working with modern technologies.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="about-text">
                 My focus is on building scalable, maintainable applications that follow clean 
                 code principles. I'm passionate about creating user-friendly experiences and 
                 solving complex technical challenges.
@@ -119,29 +115,25 @@ const About = () => {
             </div>
             
             {/* Skills */}
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Technical Skills
-              </h3>
-              <div className="space-y-3">
+            <div className="about-skills">
+              <h3 className="about-subtitle">Technical Skills</h3>
+              <div className="skills-list">
                 {skills.technical && skills.technical.map((skill, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <div className="text-gray-600 dark:text-gray-300">
+                  <div key={index} className="skill-item">
+                    <div className="skill-dot technical"></div>
+                    <div className="skill-text">
                       {skill}
                     </div>
                   </div>
                 ))}
               </div>
               
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 mt-8">
-                Professional Skills
-              </h3>
-              <div className="space-y-3">
+              <h3 className="about-subtitle skills-professional-title">Professional Skills</h3>
+              <div className="skills-list">
                 {skills.professional && skills.professional.map((skill, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <div className="text-gray-600 dark:text-gray-300">
+                  <div key={index} className="skill-item">
+                    <div className="skill-dot professional"></div>
+                    <div className="skill-text">
                       {skill}
                     </div>
                   </div>
@@ -151,27 +143,25 @@ const About = () => {
           </div>
           
           {/* Experience & Education */}
-          <div className="space-y-8">
+          <div className="about-right">
             {/* Experience */}
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                Experience
-              </h3>
-              <div className="space-y-6">
+            <div className="about-experience">
+              <h3 className="about-subtitle">Experience</h3>
+              <div className="timeline">
                 {experience.map((job) => (
-                  <div key={job.id} className="relative pl-6 border-l-2 border-blue-200 dark:border-blue-800">
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-                    <div className="pb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <div key={job.id} className="timeline-item">
+                    <div className="timeline-dot"></div>
+                    <div className="timeline-content">
+                      <h4 className="timeline-position">
                         {job.position}
                       </h4>
-                      <p className="text-blue-600 dark:text-blue-400 font-medium">
+                      <p className="timeline-company">
                         {job.company}
                       </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                      <p className="timeline-duration">
                         {job.duration}
                       </p>
-                      <ul className="space-y-1 text-gray-600 dark:text-gray-300 text-sm">
+                      <ul className="timeline-list">
                         {job.responsibilities.slice(0, 2).map((resp, index) => (
                           <li key={index}>• {resp}</li>
                         ))}
@@ -183,25 +173,23 @@ const About = () => {
             </div>
             
             {/* Education */}
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                Education
-              </h3>
-              <div className="space-y-6">
+            <div className="about-education">
+              <h3 className="about-subtitle">Education</h3>
+              <div className="timeline timeline-education">
                 {education.map((edu) => (
-                  <div key={edu.id} className="relative pl-6 border-l-2 border-green-200 dark:border-green-800">
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-green-600 rounded-full"></div>
-                    <div className="pb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <div key={edu.id} className="timeline-item">
+                    <div className="timeline-dot education-dot"></div>
+                    <div className="timeline-content">
+                      <h4 className="timeline-degree">
                         {edu.degree}
                       </h4>
-                      <p className="text-green-600 dark:text-green-400 font-medium">
+                      <p className="timeline-school">
                         {edu.institution}
                       </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                      <p className="timeline-duration">
                         {edu.duration}
                       </p>
-                      <ul className="space-y-1 text-gray-600 dark:text-gray-300 text-sm">
+                      <ul className="timeline-list">
                         {edu.details.slice(0, 3).map((detail, index) => (
                           <li key={index}>• {detail}</li>
                         ))}

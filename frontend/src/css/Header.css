@@ -1,21 +1,22 @@
-/* Header Component Styles */
+/* Header */
 .header {
   position: sticky;
   top: 0;
   z-index: 50;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid #cccccc;
-  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #d1d5db;
+  padding: 16px 24px;
+  transition: all 0.3s;
 }
 
-.header.dark {
+html.dark .header {
   background-color: rgba(0, 0, 0, 0.95);
-  border-bottom-color: #444444;
+  border-bottom-color: #374151;
 }
 
 .header-nav {
-  max-width: 72rem;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -23,63 +24,55 @@
 }
 
 .header-logo {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   color: #000000;
+  transition: color 0.3s;
 }
 
-.header.dark .header-logo {
-  color: white;
+html.dark .header-logo {
+  color: #ffffff;
 }
 
 .header-nav-links {
-  display: none;
-  gap: 2rem;
+  display: flex;
+  gap: 32px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .header-nav-links {
-    display: flex;
+    gap: 16px;
   }
 }
 
 .header-nav-link {
-  color: #333333;
+  color: #4b5563;
   text-decoration: none;
-  transition: color 0.2s;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+html.dark .header-nav-link {
+  color: #d1d5db;
 }
 
 .header-nav-link:hover {
   color: #000000;
 }
 
-.header.dark .header-nav-link {
-  color: #cccccc;
-}
-
-.header.dark .header-nav-link:hover {
-  color: white;
+html.dark .header-nav-link:hover {
+  color: #ffffff;
 }
 
 .header-theme-toggle {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: #eeeeee;
-  color: #000000;
+  background: none;
   border: none;
+  font-size: 20px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  padding: 8px;
+  transition: transform 0.3s;
 }
 
 .header-theme-toggle:hover {
-  background-color: #dddddd;
-}
-
-.header.dark .header-theme-toggle {
-  background-color: #333333;
-  color: white;
-}
-
-.header.dark .header-theme-toggle:hover {
-  background-color: #444444;
+  transform: scale(1.1);
 }

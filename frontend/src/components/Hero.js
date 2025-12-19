@@ -35,7 +35,7 @@ const Hero = () => {
   if (!portfolioData) return <div>Loading...</div>;
 
   return (
-    <section id="home" className={`hero ${isDark ? 'dark' : ''}`}>
+    <section id="home" className="hero">
       <div className="hero-container">
         <div className="hero-content">
           <div>

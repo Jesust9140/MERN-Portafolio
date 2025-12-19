@@ -39,67 +39,61 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-6 bg-white dark:bg-black">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-          Featured Project
-        </h2>
+    <section id="projects" className="projects-section">
+      <div className="projects-container">
+        <h2 className="projects-title">Featured Project</h2>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="projects-grid">
           {/* Project Image Carousel */}
-          <div>
-            <div className="relative group">
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-gray-300 dark:bg-gray-700">
-                <a
-                  href={currentProject.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full h-full cursor-pointer block"
-                >
-                  <img 
-                    src={images[currentImageIndex]} 
-                    alt={`${currentProject.name} screenshot ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </a>
-              </div>
+          <div className="projects-carousel">
+            <div className="carousel-wrapper">
+              <a
+                href={currentProject.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="carousel-image-link"
+              >
+                <img 
+                  src={images[currentImageIndex]} 
+                  alt={`${currentProject.name} screenshot ${currentImageIndex + 1}`}
+                  className="carousel-image"
+                />
+              </a>
               
               {/* Navigation Arrows */}
               <button
                 onClick={prevImage}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full transition-colors z-10"
+                className="carousel-button carousel-button-prev"
                 aria-label="Previous image"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="carousel-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full transition-colors z-10"
+                className="carousel-button carousel-button-next"
                 aria-label="Next image"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="carousel-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
 
               {/* Image Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+              <div className="carousel-dots">
                 {images.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                    }`}
+                    className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
                     aria-label={`Go to image ${index + 1}`}
                   />
                 ))}
               </div>
 
               {currentProject.featured && (
-                <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="project-featured-badge">
                   Featured project
                 </div>
               )}
@@ -107,24 +101,24 @@ const Projects = () => {
           </div>
           
           {/* Project Info */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+          <div className="project-info">
+            <div className="project-header">
+              <h3 className="project-name">
                 {currentProject.name}
               </h3>
-              <p className="text-blue-600 dark:text-blue-400 font-medium mb-4">
+              <p className="project-duration">
                 {currentProject.duration}
               </p>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              <p className="project-description">
                 {currentProject.description}
               </p>
               
-              <div className="space-y-3">
-                <h4 className="font-semibold text-gray-900 dark:text-white">Key Contributions:</h4>
-                <ul className="space-y-2">
+              <div className="project-contributions">
+                <h4 className="contributions-title">Key Contributions:</h4>
+                <ul className="contributions-list">
                   {currentProject.responsibilities.map((resp, index) => (
-                    <li key={index} className="text-gray-600 dark:text-gray-300 text-sm flex items-start">
-                      <span className="mr-3 text-blue-600 dark:text-blue-400 flex-shrink-0">•</span>
+                    <li key={index} className="contribution-item">
+                      <span className="contribution-bullet">•</span>
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -132,23 +126,23 @@ const Projects = () => {
               </div>
             </div>
             
-            <div className="flex flex-wrap gap-2">
+            <div className="project-tech">
               {currentProject.technologies.map((tech, techIndex) => (
                 <span 
                   key={techIndex}
-                  className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
+                  className="tech-badge"
                 >
                   {tech}
                 </span>
               ))}
             </div>
             
-            <div className="flex gap-4">
+            <div className="project-buttons">
               <a 
                 href={currentProject.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                className="button button-secondary"
               >
                 GitHub
               </a>
@@ -157,7 +151,7 @@ const Projects = () => {
                   href={currentProject.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                  className="button button-primary"
                 >
                   Live Site
                 </a>

@@ -41,7 +41,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+    <div className="app">
       <Header toggleDarkMode={toggleDarkMode} />
       <Hero />
       <Projects />

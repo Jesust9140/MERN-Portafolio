@@ -17,7 +17,7 @@ const Header = ({ toggleDarkMode }) => {
   }, []);
 
   return (
-    <header className={`header ${isDark ? 'dark' : ''}`}>
+    <header className="header">
       <nav className="header-nav">
         <div className="header-logo">
           Jesus T.
