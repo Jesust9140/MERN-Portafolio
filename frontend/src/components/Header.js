@@ -38,12 +38,22 @@ const Header = ({ toggleDarkMode }) => {
           </a>
         </div>
         
-        <button
-          onClick={toggleDarkMode}
-          className="header-theme-toggle"
-        >
-          {isDark ? '☀️' : '🌙'}
-        </button>
+        <div className="header-actions">
+          <a 
+            href="/resume.pdf" 
+            download="resume.pdf"
+            className="header-download-btn"
+            title="Download Resume"
+          >
+            📥
+          </a>
+          <button
+            onClick={toggleDarkMode}
+            className="header-theme-toggle"
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button>
+        </div>
       </nav>
     </header>
   );
