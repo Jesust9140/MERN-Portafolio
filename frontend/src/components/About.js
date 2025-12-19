@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/About.css';
 
 const About = () => {
-
+  // TODO: pull this from API endpoint later so I can update without redeploying
   const experience = [
     {
       id: 1,

@@ -4,6 +4,8 @@ import '../css/Experience.css';
 const Experience = () => {
   const [activeTab, setActiveTab] = useState('work');
 
+  // TODO: move all this data to the API eventually
+  // make one endpoint that returns work, education, and skills
   const experience = [
     {
       id: 1,

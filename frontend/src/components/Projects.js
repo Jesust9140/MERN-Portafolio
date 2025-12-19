@@ -4,6 +4,8 @@ import '../css/Projects.css';
 const Projects = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // TODO: think about pulling projects from API endpoint instead of hardcoding
+  // would make it easier to add/update projects without touching the component
   const projects = [
     {
       id: 1,
@@ -18,13 +20,14 @@ const Projects = () => {
         "Applied input validation and centralized error handling to prevent malformed requests and improve system reliability.",
         "Deployed the application to a cloud environment with environment variable management and production database hosting."
       ],
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "PayPal", "Steam API", "JWT", "TailwindCSS"],
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "PayPal", "Steam API", "JWT"],
       github: "https://github.com/Jesust9140",
       demo: "https://lootdrop.vercel.app/",
       featured: true,
       images: ["/images/home1.png", "/images/loginout2.png", "/images/market.png"],
       duration: "Jan 2025 - Present"
     }
+    // TODO: add more projects here when they're ready
   ];
 
   const currentProject = projects[0];

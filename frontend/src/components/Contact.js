@@ -36,9 +36,11 @@ const Contact = () => {
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setSubmitted(false), 5000);
+        // TODO: maybe send an email notification too when this works out
       }
     } catch (error) {
       console.error('Error sending message:', error);
+      // TODO: add error state and display to user
     } finally {
       setLoading(false);
     }
@@ -116,7 +118,8 @@ const Contact = () => {
             </svg>
             Send me an email
           </a>
-          
+
+
           <div className="contact-social">
             <a 
               href="https://www.linkedin.com/in/Jesust9140" 

@@ -5,14 +5,14 @@ const Hero = () => {
   const [portfolioData, setPortfolioData] = useState(null);
 
   useEffect(() => {
-    // Fetch portfolio data from backend
+    // TODO: maybe pull this to a custom hook later, it's getting repetitive in multiple components
     const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
     fetch(`${apiUrl}/api/portfolio`)
       .then(response => response.json())
       .then(data => setPortfolioData(data))
       .catch(error => {
         console.error('Error fetching portfolio data:', error);
-        // Fallback data
+        // Fallback - keep this just in case API is down
         setPortfolioData({
           name: "Jesus T.",
           bio: "I build web experiences focused on accessibility and speed. I've started my software engineer career to help my ideas come true."
@@ -20,7 +20,8 @@ const Hero = () => {
       });
   }, []);
 
-  if (!portfolioData) return <div>Loading...</div>;
+  if (!portfolioData) return <div className="loading">Loading...</div>;
+  // TODO: make this a proper loading skeleton maybe?
 
   return (
     <section id="home" className="hero">

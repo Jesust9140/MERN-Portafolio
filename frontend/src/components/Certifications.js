@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../css/Certifications.css';
 
 const Certifications = () => {
-  const [isDark, setIsDark] = useState(true);
-
+  // TODO: eventually fetch these from the API endpoint instead
   const certificates = [
     {
       id: 1,
@@ -31,20 +30,8 @@ const Certifications = () => {
     }
   ];
 
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-  }, []);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section id="certifications" className={`certifications ${isDark ? 'dark' : ''}`}>
+    <section id="certifications" className="certifications">
       <div className="certifications-container">
         <h2 className="certifications-title">
           Certifications
