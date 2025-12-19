@@ -43,13 +43,13 @@ const About = () => {
   const education = [
     {
       id: 1,
-      institution: "Google IT Support Professional Certificate",
-      degree: "IT Support & Systems Fundamentals",
-      duration: "8-Month Program",
+      institution: "General Assembly",
+      degree: "Software Engineer Bootcamp",
+      duration: "Graduated",
+      location: "New York, NY",
       details: [
-        "Google-developed IT support program covering troubleshooting methodologies.",
-        "Mastered networking fundamentals, operating systems, and security.",
-        "Hands-on labs and practical exercises."
+        "Concentrations: Full-Stack Development",
+        "Object-Oriented Programming, Computing in JS & Python, HTML/CSS, Node, Mathematics, AI"
       ]
     },
     {

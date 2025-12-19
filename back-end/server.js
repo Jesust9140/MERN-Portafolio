@@ -81,14 +81,13 @@ app.get('/api/education', (req, res) => {
   res.json([
     {
       id: 1,
-      institution: "Google IT Support Professional Certificate",
-      degree: "IT Support & Systems Fundamentals",
-      duration: "8-Month Program",
-      location: "Brooklyn, NY",
+      institution: "General Assembly",
+      degree: "Software Engineer Bootcamp",
+      duration: "Graduated",
+      location: "New York, NY",
       details: [
-        "Completed a Google-developed IT support program covering troubleshooting methodologies and customer service best practices.",
-        "Mastered networking fundamentals, operating systems, system administration, and security.",
-        "Reinforced learning through hands-on labs and practical exercises."
+        "Concentrations: Full-Stack Development",
+        "Object-Oriented Programming, Computing in JS & Python, HTML/CSS, Node, Mathematics, AI"
       ]
     },
     {
