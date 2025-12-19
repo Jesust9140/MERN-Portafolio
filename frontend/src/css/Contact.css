@@ -1,6 +1,6 @@
 /* Contact Component Styles */
 .contact {
-  padding: 5rem 1.5rem;
+  padding: 3rem 1.5rem;
   background-color: #f9fafb;
 }
 
@@ -18,7 +18,7 @@
   font-size: 2.25rem;
   font-weight: bold;
   color: #111827;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact.dark .contact-title {
@@ -28,7 +28,7 @@
 .contact-description {
   font-size: 1.125rem;
   color: #4b5563;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   max-width: 32rem;
   margin-left: auto;
   margin-right: auto;
@@ -42,7 +42,7 @@
 .contact-actions {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
 }
