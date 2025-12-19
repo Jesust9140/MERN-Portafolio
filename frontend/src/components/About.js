@@ -98,55 +98,39 @@ const About = () => {
         <h2 className="about-title">About Me</h2>
         
         <div className="about-grid">
-          {/* Personal Info */}
+          {/* Left Column: Education & Experience */}
           <div className="about-left">
-            <div className="about-journey">
-              <h3 className="about-subtitle">My Journey</h3>
-              <p className="about-text">
-                Throughout my career, I've developed strong expertise in full-stack development, 
-                customer relations, and technical support. I have hands-on experience delivering 
-                web applications and working with modern technologies.
-              </p>
-              <p className="about-text">
-                My focus is on building scalable, maintainable applications that follow clean 
-                code principles. I'm passionate about creating user-friendly experiences and 
-                solving complex technical challenges.
-              </p>
-            </div>
-            
-            {/* Skills */}
-            <div className="about-skills">
-              <h3 className="about-subtitle">Technical Skills</h3>
-              <div className="skills-list">
-                {skills.technical && skills.technical.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-dot technical"></div>
-                    <div className="skill-text">
-                      {skill}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <h3 className="about-subtitle skills-professional-title">Professional Skills</h3>
-              <div className="skills-list">
-                {skills.professional && skills.professional.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-dot professional"></div>
-                    <div className="skill-text">
-                      {skill}
+            {/* Education */}
+            <div className="about-education">
+              <h3 className="about-subtitle">Education</h3>
+              <div className="timeline timeline-education">
+                {education.map((edu) => (
+                  <div key={edu.id} className="timeline-item">
+                    <div className="timeline-dot education-dot"></div>
+                    <div className="timeline-content">
+                      <h4 className="timeline-degree">
+                        {edu.degree}
+                      </h4>
+                      <p className="timeline-school">
+                        {edu.institution}
+                      </p>
+                      <p className="timeline-duration">
+                        {edu.duration}
+                      </p>
+                      <ul className="timeline-list">
+                        {edu.details.slice(0, 3).map((detail, index) => (
+                          <li key={index}>• {detail}</li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-          
-          {/* Experience & Education */}
-          <div className="about-right">
+
             {/* Experience */}
             <div className="about-experience">
-              <h3 className="about-subtitle">Experience</h3>
+              <h3 className="about-subtitle">Work History</h3>
               <div className="timeline">
                 {experience.map((job) => (
                   <div key={job.id} className="timeline-item">
@@ -171,29 +155,30 @@ const About = () => {
                 ))}
               </div>
             </div>
-            
-            {/* Education */}
-            <div className="about-education">
-              <h3 className="about-subtitle">Education</h3>
-              <div className="timeline timeline-education">
-                {education.map((edu) => (
-                  <div key={edu.id} className="timeline-item">
-                    <div className="timeline-dot education-dot"></div>
-                    <div className="timeline-content">
-                      <h4 className="timeline-degree">
-                        {edu.degree}
-                      </h4>
-                      <p className="timeline-school">
-                        {edu.institution}
-                      </p>
-                      <p className="timeline-duration">
-                        {edu.duration}
-                      </p>
-                      <ul className="timeline-list">
-                        {edu.details.slice(0, 3).map((detail, index) => (
-                          <li key={index}>• {detail}</li>
-                        ))}
-                      </ul>
+          </div>
+          
+          {/* Right Column: Skills */}
+          <div className="about-right">
+            <div className="about-skills">
+              <h3 className="about-subtitle">Technical Skills</h3>
+              <div className="skills-list">
+                {skills.technical && skills.technical.map((skill, index) => (
+                  <div key={index} className="skill-item">
+                    <div className="skill-dot technical"></div>
+                    <div className="skill-text">
+                      {skill}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <h3 className="about-subtitle skills-professional-title">Professional Skills</h3>
+              <div className="skills-list">
+                {skills.professional && skills.professional.map((skill, index) => (
+                  <div key={index} className="skill-item">
+                    <div className="skill-dot professional"></div>
+                    <div className="skill-text">
+                      {skill}
                     </div>
                   </div>
                 ))}

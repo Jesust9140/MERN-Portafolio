@@ -188,6 +188,30 @@ app.get('/api/skills', (req, res) => {
   });
 });
 
+// Contact form endpoint
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+
+  // Validate input
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  // Log the message (in production, send email or save to database)
+  console.log('New contact message:', {
+    name,
+    email,
+    message,
+    timestamp: new Date().toISOString()
+  });
+
+  // Send success response
+  res.json({ 
+    success: true, 
+    message: 'Message received! I will get back to you soon.' 
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

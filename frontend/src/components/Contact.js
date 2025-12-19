@@ -2,7 +2,14 @@ import React, { useState, useEffect } from 'react';
 import '../css/Contact.css';
 
 const Contact = () => {
-  const [isDark, setIsDark] = useState(true); // Default to dark
+  const [isDark, setIsDark] = useState(true);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
@@ -15,16 +22,101 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
-        <h2 className="contact-title">Let's Connect</h2>
-        <p className="contact-description">
-          I'm always interested in new opportunities and exciting projects. 
-          Whether you want to discuss a potential collaboration or just say hello, 
-          I'd love to hear from you.
-        </p>
+        <h2 className="contact-title">I love to talk</h2>
+        {/* <p className="contact-description">
+          I love to talk 
+        </p> */}
         
+        {/* Contact Form */}
+        <div className="contact-form-wrapper">
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="5"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="form-textarea"
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              disabled={loading}
+              className="form-button"
+            >
+              {loading ? 'Sending...' : 'Send Message'}
+            </button>
+
+            {submitted && (
+              <p className="form-success">✓ Message sent successfully!</p>
+            )}
+          </form>
+        </div>
+
+        {/* Social Links */}
         <div className="contact-links">
           <a 
             href="mailto:jesust9140@gmail.com"
