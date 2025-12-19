@@ -3,23 +3,11 @@ import '../css/Hero.css';
 
 const Hero = () => {
   const [portfolioData, setPortfolioData] = useState(null);
-  const [isDark, setIsDark] = useState(true); // Default to dark
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-  }, []);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     // Fetch portfolio data from backend
-    fetch('http://localhost:5000/api/portfolio')
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    fetch(`${apiUrl}/api/portfolio`)
       .then(response => response.json())
       .then(data => setPortfolioData(data))
       .catch(error => {
