@@ -1,11 +1,11 @@
 /* Projects Component Styles */
 .projects {
   padding: 3rem 1.5rem;
-  background-color: #f9fafb;
+  background-color: white;
 }
 
 .projects.dark {
-  background-color: #1f2937;
+  background-color: #000000;
 }
 
 .projects-container {
@@ -16,7 +16,7 @@
 .projects-title {
   font-size: 2.25rem;
   font-weight: bold;
-  color: #111827;
+  color: #000000;
   margin-bottom: 2rem;
   text-align: center;
 }

@@ -5,7 +5,7 @@
 }
 
 .about.dark {
-  background-color: #111827;
+  background-color: #000000;
 }
 
 .about-container {
@@ -16,7 +16,7 @@
 .about-title {
   font-size: 2.25rem;
   font-weight: bold;
-  color: #111827;
+  color: #000000;
   margin-bottom: 2rem;
   text-align: center;
 }

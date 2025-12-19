@@ -4,11 +4,11 @@
   display: flex;
   align-items: center;
   padding: 3rem 1.5rem;
-  background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+  background: white;
 }
 
 .hero.dark {
-  background: linear-gradient(to bottom right, #111827, #1f2937);
+  background: #000000;
 }
 
 .hero-container {
@@ -44,7 +44,7 @@
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  color: #111827;
+  color: #000000;
   line-height: 1.1;
 }
 
@@ -60,7 +60,7 @@
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: #374151;
+  color: #333333;
   font-weight: 300;
 }
 
@@ -71,12 +71,12 @@
 }
 
 .hero.dark .hero-subtitle {
-  color: #d1d5db;
+  color: #e0e0e0;
 }
 
 .hero-description {
   font-size: 1.125rem;
-  color: #4b5563;
+  color: #555555;
   line-height: 1.75;
   max-width: 32rem;
 }

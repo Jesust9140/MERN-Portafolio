@@ -1,11 +1,11 @@
 /* Contact Component Styles */
 .contact {
   padding: 3rem 1.5rem;
-  background-color: #f9fafb;
+  background-color: white;
 }
 
 .contact.dark {
-  background-color: #1f2937;
+  background-color: #000000;
 }
 
 .contact-container {
