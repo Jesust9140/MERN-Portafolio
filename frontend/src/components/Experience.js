@@ -169,8 +169,8 @@ const Experience = () => {
             onClick={() => setActiveTab('work')}
             className={`px-6 py-2 text-sm font-medium rounded-l-md ${
               activeTab === 'work'
-                ? 'bg-gray-900 text-white'
-                : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white'
+                ? 'bg-black text-white dark:bg-white dark:text-black'
+                : 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white'
             }`}
           >
             Work
@@ -179,8 +179,8 @@ const Experience = () => {
             onClick={() => setActiveTab('education')}
             className={`px-6 py-2 text-sm font-medium rounded-none ${
               activeTab === 'education'
-                ? 'bg-gray-900 text-white'
-                : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white'
+                ? 'bg-black text-white dark:bg-white dark:text-black'
+                : 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white'
             }`}
           >
             Education
@@ -189,8 +189,8 @@ const Experience = () => {
             onClick={() => setActiveTab('skills')}
             className={`px-6 py-2 text-sm font-medium rounded-r-md ${
               activeTab === 'skills'
-                ? 'bg-gray-900 text-white'
-                : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white'
+                ? 'bg-black text-white dark:bg-white dark:text-black'
+                : 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white'
             }`}
           >
             Skills

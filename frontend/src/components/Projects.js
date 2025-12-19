@@ -39,7 +39,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-6 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="py-20 px-6 bg-white dark:bg-black">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
           Featured Project
@@ -49,7 +49,7 @@ const Projects = () => {
           {/* Project Image Carousel */}
           <div>
             <div className="relative group">
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-gray-200 dark:bg-gray-700">
+              <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-gray-300 dark:bg-gray-700">
                 <a
                   href={currentProject.demo}
                   target="_blank"
