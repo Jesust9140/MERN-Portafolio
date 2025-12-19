@@ -3,8 +3,33 @@ import '../css/Certifications.css';
 
 const Certifications = () => {
   const [isDark, setIsDark] = useState(true);
-  const [certificates, setCertificates] = useState([]);
-  const [loading, setLoading] = useState(true);
+
+  const certificates = [
+    {
+      id: 1,
+      name: "Technical Support Fundamentals",
+      issuer: "Google (Coursera)",
+      date: "Dec 2025"
+    },
+    {
+      id: 2,
+      name: "Introduction to Cyber Attacks",
+      issuer: "New York University (Coursera)",
+      date: "Feb 2025"
+    },
+    {
+      id: 3,
+      name: "Programming with JavaScript",
+      issuer: "Meta (Coursera)",
+      date: "Feb 2025"
+    },
+    {
+      id: 4,
+      name: "Introduction to Front-End Development",
+      issuer: "Meta (Coursera)",
+      date: "Jan 2023"
+    }
+  ];
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
@@ -17,23 +42,6 @@ const Certifications = () => {
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/certificates')
-      .then(res => res.json())
-      .then(data => {
-        setCertificates(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching certificates:', error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <section id="certifications" className="certifications">Loading...</section>;
-  }
 
   return (
     <section id="certifications" className={`certifications ${isDark ? 'dark' : ''}`}>

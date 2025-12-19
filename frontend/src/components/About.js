@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../css/About.css';
 
 const About = () => {
-  const [experience, setExperience] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [skills, setSkills] = useState({ technical: [], professional: [] });
-  const [isDark, setIsDark] = useState(true); // Default to dark
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
@@ -18,65 +15,82 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    // Fetch data from backend
-    Promise.all([
-      fetch('http://localhost:5000/api/experience').then(res => res.json()),
-      fetch('http://localhost:5000/api/education').then(res => res.json()),
-      fetch('http://localhost:5000/api/skills').then(res => res.json())
-    ])
-    .then(([experienceData, educationData, skillsData]) => {
-      setExperience(experienceData);
-      setEducation(educationData);
-      setSkills(skillsData);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      // Fallback data
-      setExperience([
-        {
-          id: 1,
-          company: "Samsung",
-          position: "Samsung Experience Consultant",
-          duration: "Jan 2022 - Present",
-          responsibilities: [
-            "Developed strong communication skills and conflict resolution techniques.",
-            "Troubleshoot software and computer peripherals, Active Directory and Group Policy.",
-            "Created my own selling techniques and pitches for Samsung products.",
-            "Provided technical support for computers, printers, and peripherals."
-          ]
-        }
-      ]);
-      setEducation([
-        {
-          id: 1,
-          institution: "General Assembly Bootcamp",
-          degree: "Software Engineer Certificate",
-          duration: "2024 - Present",
-          details: [
-            "Learned full-stack development for complete web applications.",
-            "Focused on both front-end and back-end technologies.",
-            "Tools: JavaScript, HTML, CSS, Node.js, Express, MongoDB, React."
-          ]
-        }
-      ]);
-      setSkills({
-        technical: [
-          "HTML, CSS, JavaScript, React",
-          "Node.js, Express, MongoDB, Mongoose",
-          "Windows & Linux fundamentals, OS concepts",
-          "TCP/IP, DNS, basic networking & connectivity troubleshooting",
-          "npm, REST APIs, debugging"
-        ],
-        professional: [
-          "Customer Support & Technical Communication",
-          "Technical Troubleshooting & Issue Resolution",
-          "KPI Tracking, Reporting, & Documentation",
-          "Team Leadership, Training, & Mentorship"
-        ]
-      });
-    });
-  }, []);
+  const experience = [
+    {
+      id: 1,
+      company: "2020Companies",
+      position: "Lead Samsung Experience Consultant (Lead SEC)",
+      duration: "March 2022 - Present",
+      location: "Brooklyn, NY",
+      responsibilities: [
+        "Led and supported a team of five Samsung Experience Consultants across four high-traffic Best Buy locations.",
+        "Served as the primary escalation point for complex customer issues, product questions, and device troubleshooting.",
+        "Maintained top regional performance for three consecutive years through consistent KPI achievement."
+      ]
+    },
+    {
+      id: 2,
+      company: "2020Companies",
+      position: "Samsung Technical Support Consultant (in-store)",
+      duration: "Jan 2022 - Mar 2022",
+      responsibilities: [
+        "Acted as first point of contact for walk-in customers with technical guidance and demonstrations.",
+        "Diagnosed customer needs and recommended appropriate devices and solutions.",
+        "Recognized for reliability, communication skills, and ability to build rapport with customers."
+      ]
+    },
+    {
+      id: 3,
+      company: "Best Buy",
+      position: "Geek Squad Consultation Agent (CA)",
+      duration: "Sept 2020 - Jan 2022",
+      responsibilities: [
+        "Provided Tier 1 technical support for customer devices including smartphones and laptops.",
+        "Diagnosed hardware and software issues using diagnostic tools.",
+        "Supported Windows, macOS, and basic Linux environments."
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      id: 1,
+      institution: "Google IT Support Professional Certificate",
+      degree: "IT Support & Systems Fundamentals",
+      duration: "8-Month Program",
+      details: [
+        "Google-developed IT support program covering troubleshooting methodologies.",
+        "Mastered networking fundamentals, operating systems, and security.",
+        "Hands-on labs and practical exercises."
+      ]
+    },
+    {
+      id: 2,
+      institution: "Spring Creek Community School",
+      degree: "Arts & Technologies",
+      duration: "Sept 2016 - July 2020",
+      details: [
+        "Concentrations: Critical Thinking, New Technologies, Algebra I & II",
+        "Related Coursework: HTML/CSS, NODE"
+      ]
+    }
+  ];
+
+  const skills = {
+    technical: [
+      "HTML, CSS, JavaScript, React",
+      "Node.js, Express, MongoDB, Mongoose",
+      "Windows & Linux fundamentals, OS concepts",
+      "TCP/IP, DNS, basic networking & connectivity troubleshooting",
+      "npm, REST APIs, debugging"
+    ],
+    professional: [
+      "Customer Support & Technical Communication",
+      "Technical Troubleshooting & Issue Resolution",
+      "KPI Tracking, Reporting, & Documentation",
+      "Team Leadership, Training, & Mentorship"
+    ]
+  };
 
   return (
     <section id="about" className="py-20 px-6 bg-white dark:bg-gray-900">

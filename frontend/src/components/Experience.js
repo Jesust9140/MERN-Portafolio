@@ -1,43 +1,97 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Experience = () => {
   const [activeTab, setActiveTab] = useState('work');
-  const [experience, setExperience] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [skills, setSkills] = useState({ technical: [], professional: [] });
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Fetch data from backend
-    Promise.all([
-      fetch('http://localhost:5000/api/experience').then(res => res.json()),
-      fetch('http://localhost:5000/api/education').then(res => res.json()),
-      fetch('http://localhost:5000/api/skills').then(res => res.json())
-    ])
-    .then(([experienceData, educationData, skillsData]) => {
-      setExperience(experienceData);
-      setEducation(educationData);
-      setSkills(skillsData);
-      setLoading(false);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      setLoading(false);
-    });
-      setSkills([
-        "JavaScript - My go-to language for both frontend and backend development",
-        "React - I love building interactive UIs and this portfolio showcases my React skills",
-        "Node.js & Express - Built the backend API for this portfolio to serve dynamic content",
-        "MongoDB - Used for storing portfolio data, though this project uses in-memory data",
-        "HTML & CSS - Foundation skills I use daily, plus Tailwind CSS for modern styling",
-        "Git & GitHub - Version control is essential, all my projects are on GitHub",
-        "RESTful APIs - Designed and built the API endpoints you see working in this portfolio",
-        "Responsive Design - This site works great on mobile, tablet, and desktop",
-        "Dark Mode Implementation - I added the theme toggle you see in the header",
-        "MERN Stack - This entire portfolio is a MERN application I built from scratch"
-      ]);
-    });
-  }, []);
+  const experience = [
+    {
+      id: 1,
+      company: "2020Companies",
+      position: "Lead Samsung Experience Consultant (Lead SEC)",
+      duration: "March 2022 - Present",
+      location: "Brooklyn, NY",
+      responsibilities: [
+        "Led and supported a team of five Samsung Experience Consultants across four high-traffic Best Buy locations in Brooklyn and Manhattan.",
+        "Served as the primary escalation point for complex customer issues, product questions, and device troubleshooting.",
+        "Conducted weekly coaching sessions and 1:1 performance reviews focused on communication quality, issue resolution, and customer experience consistency.",
+        "Delivered hands-on demonstrations of Samsung devices and ecosystem integrations, translating technical features into clear, real-world use cases.",
+        "Coordinated with Samsung and Best Buy leadership to execute live events, in-store trainings, and technical walkthroughs.",
+        "Maintained top regional performance for three consecutive years through consistent KPI achievement and strong team development."
+      ]
+    },
+    {
+      id: 2,
+      company: "2020Companies",
+      position: "Samsung Technical Support Consultant (in-store)",
+      duration: "Jan 2022 - Mar 2022",
+      location: "Garden City, NY",
+      responsibilities: [
+        "Acted as the first point of contact for walk-in customers, providing technical guidance, device explanations, and hands-on demonstrations.",
+        "Diagnosed customer needs and recommended appropriate devices, configurations, and ecosystem solutions.",
+        "Communicated technical concepts clearly to non-technical users, building trust and ensuring positive customer outcomes.",
+        "Collaborated with cross-department teams to provide consistent, end-to-end customer support.",
+        "Recognized for reliability, communication skills, and ability to quickly build rapport with customers."
+      ]
+    },
+    {
+      id: 3,
+      company: "Best Buy",
+      position: "Geek Squad Consultation Agent (CA)",
+      duration: "Sept 2020 - Jan 2022",
+      location: "Brooklyn, NY",
+      responsibilities: [
+        "Provided Tier 1 technical support for customer devices, including smartphones, laptops, and peripherals.",
+        "Diagnosed hardware, software, and connectivity issues using Geek Squad and Apple diagnostic tools (GSX, GSX2, ATLAS).",
+        "Supported Windows, macOS, and basic Linux environments, assisting users with OS configuration and troubleshooting.",
+        "Assisted customers with productivity tools, including Microsoft Word, Excel, and OneDrive.",
+        "Documented issues, troubleshooting steps, and resolutions according to Geek Squad service standards.",
+        "Delivered clear explanations and preventative recommendations to help customers avoid recurring technical issues.",
+        "Maintained strong customer satisfaction by communicating technical issues effectively, even when delivering unfavorable outcomes."
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      id: 1,
+      institution: "Google IT Support Professional Certificate",
+      degree: "IT Support & Systems Fundamentals",
+      duration: "8-Month Program",
+      location: "Brooklyn, NY",
+      details: [
+        "Completed a Google-developed IT support program covering troubleshooting methodologies and customer service best practices.",
+        "Mastered networking fundamentals, operating systems, system administration, and security.",
+        "Reinforced learning through hands-on labs and practical exercises."
+      ]
+    },
+    {
+      id: 2,
+      institution: "Spring Creek Community School",
+      degree: "Arts & Technologies",
+      duration: "Sept 2016 - July 2020",
+      location: "Brooklyn, NY",
+      details: [
+        "Concentrations: Critical Thinking, New Technologies, Algebra I & II",
+        "Related Coursework: HTML/CSS, NODE"
+      ]
+    }
+  ];
+
+  const skills = {
+    technical: [
+      "HTML, CSS, JavaScript, React",
+      "Node.js, Express, MongoDB, Mongoose",
+      "Windows & Linux fundamentals, OS concepts",
+      "TCP/IP, DNS, basic networking & connectivity troubleshooting",
+      "npm, REST APIs, debugging"
+    ],
+    professional: [
+      "Customer Support & Technical Communication",
+      "Technical Troubleshooting & Issue Resolution",
+      "KPI Tracking, Reporting, & Documentation",
+      "Team Leadership, Training, & Mentorship"
+    ]
+  };
 
   const renderContent = () => {
     switch (activeTab) {
