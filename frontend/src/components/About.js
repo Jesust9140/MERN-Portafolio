@@ -11,9 +11,11 @@ const About = () => {
       duration: "March 2022 - Present",
       location: "Brooklyn, NY",
       responsibilities: [
-        "Led and supported a team of five Samsung Experience Consultants across four high-traffic Best Buy locations.",
+        "Led and supported a team of five Samsung Experience Consultants across four high-traffic Best Buy locations in Brooklyn and Manhattan.",
         "Served as the primary escalation point for complex customer issues, product questions, and device troubleshooting.",
-        "Maintained top regional performance for three consecutive years through consistent KPI achievement."
+        "Conducted weekly coaching sessions and 1:1 performance reviews focused on communication quality, issue resolution, and customer experience consistency.",
+        "Delivered hands-on demonstrations of Samsung devices and ecosystem integrations, translating technical features into clear, real-world use cases.",
+        "Coordinated with Samsung and Best Buy leadership to execute live events, in-store trainings, and technical walkthroughs."
       ]
     },
     {
@@ -21,10 +23,13 @@ const About = () => {
       company: "2020Companies",
       position: "Samsung Technical Support Consultant (in-store)",
       duration: "Jan 2022 - Mar 2022",
+      location: "Garden City, NY",
       responsibilities: [
-        "Acted as first point of contact for walk-in customers with technical guidance and demonstrations.",
-        "Diagnosed customer needs and recommended appropriate devices and solutions.",
-        "Recognized for reliability, communication skills, and ability to build rapport with customers."
+        "Acted as the first point of contact for walk-in customers, providing technical guidance, device explanations, and hands-on demonstrations.",
+        "Diagnosed customer needs and recommended appropriate devices, configurations, and ecosystem solutions.",
+        "Communicated technical concepts clearly to non-technical users, building trust and ensuring positive customer outcomes.",
+        "Collaborated with cross-department teams to provide consistent, end-to-end customer support.",
+        "Recognized for reliability, communication skills, and ability to quickly build rapport with customers."
       ]
     },
     {
@@ -32,10 +37,15 @@ const About = () => {
       company: "Best Buy",
       position: "Geek Squad Consultation Agent (CA)",
       duration: "Sept 2020 - Jan 2022",
+      location: "Brooklyn, NY",
       responsibilities: [
-        "Provided Tier 1 technical support for customer devices including smartphones and laptops.",
-        "Diagnosed hardware and software issues using diagnostic tools.",
-        "Supported Windows, macOS, and basic Linux environments."
+        "Provided Tier 1 technical support for customer devices, including smartphones, laptops, and peripherals.",
+        "Diagnosed hardware, software, and connectivity issues using Geek Squad and Apple diagnostic tools (GSX, GSX2, ATLAS).",
+        "Supported Windows, macOS, and basic Linux environments, assisting users with OS configuration and troubleshooting.",
+        "Assisted customers with productivity tools, including Microsoft Word, Excel, and OneDrive.",
+        "Documented issues, troubleshooting steps, and resolutions according to Geek Squad service standards.",
+        "Delivered clear explanations and preventative recommendations to help customers avoid recurring technical issues.",
+        "Maintained strong customer satisfaction by communicating technical issues effectively, even when delivering unfavorable outcomes."
       ]
     }
   ];
@@ -106,7 +116,7 @@ const About = () => {
                         {edu.duration}
                       </p>
                       <ul className="timeline-list">
-                        {edu.details.slice(0, 3).map((detail, index) => (
+                        {edu.details.map((detail, index) => (
                           <li key={index}>• {detail}</li>
                         ))}
                       </ul>
@@ -134,7 +144,7 @@ const About = () => {
                         {job.duration}
                       </p>
                       <ul className="timeline-list">
-                        {job.responsibilities.slice(0, 2).map((resp, index) => (
+                        {job.responsibilities.map((resp, index) => (
                           <li key={index}>• {resp}</li>
                         ))}
                       </ul>

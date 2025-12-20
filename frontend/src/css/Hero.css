@@ -54,6 +54,12 @@ html.dark .hero-greeting {
   line-height: 1.2;
 }
 
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 32px;
+  }
+}
+
 html.dark .hero-title {
   color: #ffffff;
 }

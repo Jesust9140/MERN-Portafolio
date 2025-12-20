@@ -1,9 +1,15 @@
 /* Experience Section */
 .experience-section {
-  padding: 20px 24px;
+  padding: 80px 24px;
   background-color: #ffffff;
   transition: background-color 0.3s;
   border-top: 1px solid #d1d5db;
+}
+
+@media (max-width: 640px) {
+  .experience-section {
+    padding: 40px 16px;
+  }
 }
 
 html.dark .experience-section {
@@ -65,6 +71,13 @@ html.dark .tab-button.active {
   flex-direction: column;
   gap: 40px;
   transition: border-color 0.3s;
+}
+
+@media (max-width: 640px) {
+  .experience-timeline {
+    padding-left: 16px;
+    gap: 32px;
+  }
 }
 
 html.dark .experience-timeline {
@@ -136,6 +149,14 @@ html.dark .timeline-title {
   color: #4b5563;
   font-size: 14px;
   transition: color 0.3s;
+  overflow: visible;
+}
+
+@media (max-width: 640px) {
+  .timeline-items {
+    margin-left: 16px;
+    gap: 8px;
+  }
 }
 
 html.dark .timeline-items {
@@ -144,6 +165,8 @@ html.dark .timeline-items {
 
 .timeline-items li {
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Skills Content */

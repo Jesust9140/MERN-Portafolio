@@ -241,10 +241,19 @@ html.dark .timeline-duration {
   transition: color 0.3s;
 }
 
+@media (max-width: 640px) {
+  .timeline-list {
+    gap: 8px;
+    font-size: 13px;
+  }
+}
+
 html.dark .timeline-list {
   color: #d1d5db;
 }
 
 .timeline-list li {
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
