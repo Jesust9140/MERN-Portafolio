@@ -1,7 +1,7 @@
 /* Projects Section */
 .projects-section {
-  padding: 40px 24px;
-  background-color: #ffffff;
+  padding: 80px 24px;
+  background-color: #000000;
   transition: background-color 0.3s;
 }
 
@@ -10,21 +10,74 @@ html.dark .projects-section {
 }
 
 .projects-container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
+}
+
+.projects-header {
+  margin-bottom: 48px;
+  text-align: center;
 }
 
 .projects-title {
   font-size: 36px;
   font-weight: bold;
   color: #1f2937;
-  margin-bottom: 48px;
-  text-align: center;
+  margin: 0;
   transition: color 0.3s;
 }
 
 html.dark .projects-title {
   color: #ffffff;
+}
+
+.projects-content {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.projects-display {
+  flex: 1;
+  max-width: 1400px;
+}
+
+.projects-nav-button {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s, filter 0.2s;
+  z-index: 20;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.projects-nav-button.projects-nav-prev {
+  left: -70px;
+}
+
+.projects-nav-button.projects-nav-next {
+  right: -70px;
+}
+
+.projects-nav-button:hover {
+  color: #60a5fa;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.4));
+}
+
+.projects-nav-arrow {
+  width: 28px;
+  height: 28px;
 }
 
 .projects-grid {
@@ -39,6 +92,19 @@ html.dark .projects-title {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
+  .projects-content {
+    gap: 0;
+    padding: 0 40px;
+  }
+
+  .projects-nav-button.projects-nav-prev {
+    left: -30px;
+  }
+
+  .projects-nav-button.projects-nav-next {
+    right: -30px;
+  }
 }
 
 /* Carousel */
@@ -49,7 +115,7 @@ html.dark .projects-title {
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
   background-color: #d1d5db;
@@ -176,6 +242,7 @@ html.dark .carousel-wrapper {
   font-weight: bold;
   color: #1f2937;
   transition: color 0.3s;
+  margin: 0;
 }
 
 html.dark .project-name {
@@ -186,6 +253,7 @@ html.dark .project-name {
   color: #2563eb;
   font-weight: 500;
   transition: color 0.3s;
+  margin: 0;
 }
 
 html.dark .project-duration {
@@ -195,7 +263,7 @@ html.dark .project-duration {
 .project-description {
   color: #4b5563;
   line-height: 1.6;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
   transition: color 0.3s;
 }
 
@@ -213,6 +281,7 @@ html.dark .project-description {
   font-weight: 600;
   color: #1f2937;
   transition: color 0.3s;
+  margin: 0;
 }
 
 html.dark .contributions-title {
@@ -224,6 +293,8 @@ html.dark .contributions-title {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 0;
+  padding: 0;
 }
 
 .contribution-item {
@@ -325,4 +396,30 @@ html.dark .button-secondary {
 
 html.dark .button-secondary:hover {
   background-color: #1f2937;
+}
+
+/* Project Indicators */
+.projects-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.project-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.project-indicator.active {
+  background-color: #2563eb;
+  border-color: #60a5fa;
+}
+
+.project-indicator:hover {
+  background-color: rgba(255, 255, 255, 0.6);
 }

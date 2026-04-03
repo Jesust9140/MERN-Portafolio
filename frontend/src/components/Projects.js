@@ -3,9 +3,8 @@ import '../css/Projects.css';
 
 const Projects = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
-  // TODO: think about pulling projects from API endpoint instead of hardcoding
-  // would make it easier to add/update projects without touching the component
   const projects = [
     {
       id: 1,
@@ -20,17 +19,36 @@ const Projects = () => {
         "Applied input validation and centralized error handling to prevent malformed requests and improve system reliability.",
         "Deployed the application to a cloud environment with environment variable management and production database hosting."
       ],
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "PayPal", "Steam API", "JWT"],
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "PayPal", "Steam API", "JWT", "TailwindCSS"],
       github: "https://github.com/Jesust9140",
       demo: "https://lootdrop.vercel.app/",
       featured: true,
       images: ["/images/home1.png", "/images/loginout2.png", "/images/market.png"],
       duration: "Jan 2025 - Present"
+    },
+    {
+      id: 3,
+      name: "PracticeHere",
+      description: "Full-stack practice session scheduling application with integrated timer functionality, progress tracking, and session analytics.",
+      responsibilities: [
+        "Designed and built a full-stack practice scheduling web application with session management and timer integration across 10+ REST API endpoints.",
+        "Implemented real-time session tracking with duration monitoring, break management, and practice session analytics dashboard.",
+        "Created an intuitive UI with timer functionality featuring customizable practice intervals, progress visualization, and session history.",
+        "Integrated secure user authentication with session persistence and practice history saved to MongoDB database.",
+        "Developed responsive design supporting both desktop and mobile devices with real-time updates during practice sessions.",
+        "Built analytics dashboard displaying practice statistics, total hours, session frequency, and progress trends over time.",
+        "Deployed application with proper error handling, input validation, and database optimization for scalable session management."
+      ],
+      technologies: ["React", "Node.js", "Express", "MongoDB", "JavaScript", "CSS", "REST API"],
+      github: "https://github.com/Jesust9140/practicehere",
+      demo: "#",
+      featured: true,
+      images: ["/images/PracticeHere.png", "/images/home2practicehere.png", "/images/80mins.png", "/images/45mins.png"],
+      duration: "Jan 2024 - Aug 2024"
     }
-    // TODO: add more projects here when they're ready
   ];
 
-  const currentProject = projects[0];
+  const currentProject = projects[currentProjectIndex];
   const images = currentProject.images;
 
   const nextImage = () => {
@@ -41,126 +59,176 @@ const Projects = () => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const nextProject = () => {
+    setCurrentProjectIndex((prev) => (prev + 1) % projects.length);
+    setCurrentImageIndex(0);
+  };
+
+  const prevProject = () => {
+    setCurrentProjectIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentImageIndex(0);
+  };
+
   return (
     <section id="projects" className="projects-section">
       <div className="projects-container">
-        <h2 className="projects-title">Featured Project</h2>
-        
-        <div className="projects-grid">
-          {/* Project Image Carousel */}
-          <div className="projects-carousel">
-            <div className="carousel-wrapper">
-              <a
-                href={currentProject.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="carousel-image-link"
-              >
-                <img 
-                  src={images[currentImageIndex]} 
-                  alt={`${currentProject.name} screenshot ${currentImageIndex + 1}`}
-                  className="carousel-image"
-                />
-              </a>
-              
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevImage}
-                className="carousel-button carousel-button-prev"
-                aria-label="Previous image"
-              >
-                <svg className="carousel-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={nextImage}
-                className="carousel-button carousel-button-next"
-                aria-label="Next image"
-              >
-                <svg className="carousel-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+        <div className="projects-header">
+          <h2 className="projects-title">Featured Projects</h2>
+        </div>
 
-              {/* Image Indicators */}
-              <div className="carousel-dots">
-                {images.map((_, index) => (
+        <div className="projects-content">
+          <button
+            onClick={prevProject}
+            className="projects-nav-button projects-nav-prev"
+            aria-label="Previous project"
+          >
+            <svg className="projects-nav-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <div className="projects-display">
+            <div className="projects-grid">
+              {/* Project Image Carousel */}
+              <div className="projects-carousel">
+                <div className="carousel-wrapper">
+                  <a
+                    href={currentProject.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="carousel-image-link"
+                  >
+                    <img 
+                      src={currentProject.images[currentImageIndex]} 
+                      alt={`${currentProject.name} screenshot ${currentImageIndex + 1}`}
+                      className="carousel-image"
+                    />
+                  </a>
+                  
+                  {/* Navigation Arrows */}
                   <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
-                    aria-label={`Go to image ${index + 1}`}
-                  />
-                ))}
-              </div>
+                    onClick={prevImage}
+                    className="carousel-button carousel-button-prev"
+                    aria-label="Previous image"
+                  >
+                    <svg className="carousel-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="carousel-button carousel-button-next"
+                    aria-label="Next image"
+                  >
+                    <svg className="carousel-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
 
-              {currentProject.featured && (
-                <div className="project-featured-badge">
-                  Featured project
+                  {/* Image Indicators */}
+                  <div className="carousel-dots">
+                    {currentProject.images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {currentProject.featured && (
+                    <div className="project-featured-badge">
+                      Featured project
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </div>
-          
-          {/* Project Info */}
-          <div className="project-info">
-            <div className="project-header">
-              <h3 className="project-name">
-                {currentProject.name}
-              </h3>
-              <p className="project-duration">
-                {currentProject.duration}
-              </p>
-              <p className="project-description">
-                {currentProject.description}
-              </p>
+              </div>
               
-              <div className="project-contributions">
-                <h4 className="contributions-title">Key Contributions:</h4>
-                <ul className="contributions-list">
-                  {currentProject.responsibilities.map((resp, index) => (
-                    <li key={index} className="contribution-item">
-                      <span className="contribution-bullet">•</span>
-                      <span>{resp}</span>
-                    </li>
+              {/* Project Info */}
+              <div className="project-info">
+                <div className="project-header">
+                  <h3 className="project-name">
+                    {currentProject.name}
+                  </h3>
+                  <p className="project-duration">
+                    {currentProject.duration}
+                  </p>
+                  <p className="project-description">
+                    {currentProject.description}
+                  </p>
+                  
+                  <div className="project-contributions">
+                    <h4 className="contributions-title">Key Contributions:</h4>
+                    <ul className="contributions-list">
+                      {currentProject.responsibilities.map((resp, index) => (
+                        <li key={index} className="contribution-item">
+                          <span className="contribution-bullet">•</span>
+                          <span>{resp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="project-tech">
+                  {currentProject.technologies.map((tech, techIndex) => (
+                    <span 
+                      key={techIndex}
+                      className="tech-badge"
+                    >
+                      {tech}
+                    </span>
                   ))}
-                </ul>
+                </div>
+                
+                <div className="project-buttons">
+                  <a 
+                    href={currentProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button-secondary"
+                  >
+                    GitHub
+                  </a>
+                  {currentProject.demo !== "#" && (
+                    <a 
+                      href={currentProject.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="button button-primary"
+                    >
+                      Live Site
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
-            
-            <div className="project-tech">
-              {currentProject.technologies.map((tech, techIndex) => (
-                <span 
-                  key={techIndex}
-                  className="tech-badge"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            
-            <div className="project-buttons">
-              <a 
-                href={currentProject.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button button-secondary"
-              >
-                GitHub
-              </a>
-              {currentProject.demo !== "#" && (
-                <a 
-                  href={currentProject.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button button-primary"
-                >
-                  Live Site
-                </a>
-              )}
-            </div>
           </div>
+
+          <button
+            onClick={nextProject}
+            className="projects-nav-button projects-nav-next"
+            aria-label="Next project"
+          >
+            <svg className="projects-nav-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="projects-indicators">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setCurrentProjectIndex(index);
+                setCurrentImageIndex(0);
+              }}
+              className={`project-indicator ${index === currentProjectIndex ? 'active' : ''}`}
+              aria-label={`Go to project ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
