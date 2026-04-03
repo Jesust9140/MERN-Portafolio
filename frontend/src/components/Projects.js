@@ -27,6 +27,23 @@ const Projects = () => {
       duration: "Jan 2025 - Present"
     },
     {
+      id: 2,
+      name: "SkinVerse",
+      description: "Full-stack MERN marketplace for 10K+ CS2 skins with real-time Steam API integration, user authentication, and automated price tracking.",
+      responsibilities: [
+        "Secure payment processing (Stripe/PayPal) with OAuth 2.0 Steam auth, JWT tokens, CSRF protection, and DDoS rate limiting.",
+        "Scalable backend architecture with 12+ Express.js controllers, MongoDB models, async job queues, and admin audit trails.",
+        "Trading platform with bot integration for automated inventory sync, real-time transactions, and multi-step order fulfillment.",
+        "Complete admin dashboard with user analytics, transaction monitoring, email automation (SendGrid), and system health checks."
+      ],
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Steam API", "Stripe", "PayPal", "OAuth 2.0", "JWT", "SendGrid"],
+      github: "https://github.com/Jesust9140",
+      demo: "#",
+      featured: true,
+      images: ["/images/exchnage1.png", "/images/exchnage2.png", "/images/exhcnage3.png"],
+      duration: "Aug 2024 - Present"
+    },
+    {
       id: 3,
       name: "PracticeHere",
       description: "Full-stack practice session scheduling application with integrated timer functionality, progress tracking, and session analytics.",
