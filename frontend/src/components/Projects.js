@@ -58,7 +58,7 @@ const Projects = () => {
       ],
       technologies: ["React", "Node.js", "Express", "MongoDB", "JavaScript", "CSS", "REST API"],
       github: "https://github.com/Jesust9140/practicehere",
-      demo: "#",
+      demo: "https://main.dope3l0ulgoms.amplifyapp.com/",
       featured: true,
       images: ["/images/PracticeHere.png", "/images/home2practicehere.png", "/images/80mins.png", "/images/45mins.png"],
       duration: "Jan 2024 - Aug 2024"
