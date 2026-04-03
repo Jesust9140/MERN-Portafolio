@@ -6,9 +6,9 @@ const Certifications = () => {
   const certificates = [
     {
       id: 1,
-      name: "Technical Support Fundamentals",
-      issuer: "Google (Coursera)",
-      date: "Dec 2025"
+      name: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon",
+      date: "April 3, 2025"
     },
     {
       id: 2,

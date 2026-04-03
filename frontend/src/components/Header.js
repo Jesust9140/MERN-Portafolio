@@ -45,8 +45,7 @@ const Header = ({ toggleDarkMode }) => {
             className="header-download-btn"
             title="Download Resume"
           >
-            📥
-          </a>
+            📃          </a>
           <button
             onClick={toggleDarkMode}
             className="header-theme-toggle"

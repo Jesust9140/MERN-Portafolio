@@ -28,7 +28,7 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <div>
-            <p className="hero-greeting">Hi there 👋 I'm</p>
+            <p className="hero-greeting">Hello, Welcome! </p>
             <h1 className="hero-title">
               {portfolioData.name}
             </h1>
