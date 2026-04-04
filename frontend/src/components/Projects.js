@@ -48,21 +48,41 @@ const Projects = () => {
       name: "PracticeHere",
       description: "Full-stack practice session scheduling application with integrated timer functionality, progress tracking, and session analytics.",
       responsibilities: [
-        "Designed and built a full-stack practice scheduling web application with session management and timer integration across 10+ REST API endpoints.",
-        "Implemented real-time session tracking with duration monitoring, break management, and practice session analytics dashboard.",
-        "Created an intuitive UI with timer functionality featuring customizable practice intervals, progress visualization, and session history.",
-        "Integrated secure user authentication with session persistence and practice history saved to MongoDB database.",
-        "Developed responsive design supporting both desktop and mobile devices with real-time updates during practice sessions.",
-        "Built analytics dashboard displaying practice statistics, total hours, session frequency, and progress trends over time.",
-        "Deployed application with proper error handling, input validation, and database optimization for scalable session management."
+        "Interactive Practice Exam Platform – Built a full-featured quiz application using React and Vite with instant feedback, detailed explanations, and differentiated difficulty levels (easy, medium, hard) to help users prepare for AWS CLF-C02 certification",
+        "Smart Exam Mode Selection – Implemented flexible testing options including 40-minute focused mode (with curated medium/hard questions) and 90-minute comprehensive mode to accommodate different study needs and time constraints",
+        "Domain-Organized Content – Structured 50+ practice questions across key certification domains (Cloud Concepts, Security & Compliance, Technology, Billing) for comprehensive exam coverage and targeted learning paths",
+        "Modern Tech Stack – Developed with React 19, Vite for fast dev/build performance, and Tailwind CSS for responsive design, demonstrating proficiency with current industry-standard tools and build optimization",
+        "Clean, User-Friendly Interface – Created an intuitive question navigation system with immediate result feedback, explanation details, and tracking features to enhance the learning experience and retention"
       ],
-      technologies: ["React", "Node.js", "Express", "JavaScript", "CSS", "REST API"],
+      technologies: ["React", "Node.js", "Express", "JavaScript", "CSS"],
       github: "https://github.com/Jesust9140/practicehere",
       demo: "https://main.dope3l0ulgoms.amplifyapp.com/",
       featured: true,
       images: ["/images/PracticeHere.png", "/images/home2practicehere.png", "/images/80mins.png", "/images/45mins.png"],
       duration: "April 28, 2026"
-    }
+    }, 
+    {
+      id:4,
+      name: "Personal Portfolio",
+      description: "Full-stack MERN portfolio website showcasing 3+ projects with dynamic content management, responsive design, and integrated backend API for real-time data updates across 8+ REST endpoints.",
+      responsibilities: [
+        "Full-Stack Architecture – Built a complete MERN application with React frontend and Node.js/Express backend, featuring 8+ REST API endpoints for dynamic content management and scalable data updates.",
+        "Dynamic Content Management – Implemented API-driven content fetching to display project details, work experience, and skills with fallback mechanisms ensuring content delivery even during API downtime.",
+        "Responsive Component Design – Developed reusable React components organized by feature (Hero, Projects, Experience, Contact) with TailwindCSS for consistent responsive design across all device sizes.",
+        "Data Persistence & Scalability – Designed MongoDB data models to store portfolio content, enabling easy updates without code changes and supporting future feature expansion.",
+        "Email Integration – Integrated email service (SendGrid) for contact form submissions with server-side validation, preventing spam and ensuring reliable communication.",
+        "Production Deployment – Deployed full-stack application with environment variable management, CORS configuration, and optimized performance for custom domain (jesus-tabora.com)."
+      ],
+      technologies: ["React", "Node.js", "Express", "MongoDB", "JavaScript", "TailwindCSS", "CSS", "REST API", "SendGrid"],
+      github: "https://github.com/Jesust9140/MERN-Portafolio",
+      demo: "https://www.jesus-tabora.com",
+      featured: true,
+      images: ["/images/portfolio1.png", "/images/portfolio2.png", "/images/portfolio3.png", "/images/portfolio4.png"],
+      duration: "Nov 6, 2025"
+
+    }, 
+      
+     
   ];
 
   const currentProject = projects[currentProjectIndex];
