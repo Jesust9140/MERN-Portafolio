@@ -24,7 +24,7 @@ const Projects = () => {
       demo: "https://lootdrop.vercel.app/",
       featured: true,
       images: ["/images/home1.png", "/images/loginout2.png", "/images/market.png"],
-      duration: "Jan 2025 - Present"
+      duration: "May 15th, 2025 - 80% Complete"
     },
     {
       id: 2,
@@ -41,7 +41,7 @@ const Projects = () => {
       demo: "#",
       featured: true,
       images: ["/images/exchnage1.png", "/images/exchnage2.png", "/images/exhcnage3.png"],
-      duration: "Aug 2024 - Present"
+      duration: "January 2nd, 2026 - 90% Complete"
     },
     {
       id: 3,
@@ -56,12 +56,12 @@ const Projects = () => {
         "Built analytics dashboard displaying practice statistics, total hours, session frequency, and progress trends over time.",
         "Deployed application with proper error handling, input validation, and database optimization for scalable session management."
       ],
-      technologies: ["React", "Node.js", "Express", "MongoDB", "JavaScript", "CSS", "REST API"],
+      technologies: ["React", "Node.js", "Express", "JavaScript", "CSS", "REST API"],
       github: "https://github.com/Jesust9140/practicehere",
       demo: "https://main.dope3l0ulgoms.amplifyapp.com/",
       featured: true,
       images: ["/images/PracticeHere.png", "/images/home2practicehere.png", "/images/80mins.png", "/images/45mins.png"],
-      duration: "Jan 2024 - Aug 2024"
+      duration: "April 28, 2026"
     }
   ];
 

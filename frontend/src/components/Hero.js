@@ -33,7 +33,7 @@ const Hero = () => {
               {portfolioData.name}
             </h1>
             <h2 className="hero-subtitle">
-              Software Engineer
+              Cloud Engineer | Software engineer
             </h2>
           </div>
           

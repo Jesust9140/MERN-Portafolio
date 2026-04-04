@@ -69,7 +69,7 @@ html.dark .hero-title {
   font-weight: 600;
   color: #4b5563;
   transition: color 0.3s;
-  margin-top: -8px;
+  margin-top: -4px;
 }
 
 html.dark .hero-subtitle {
