@@ -15,7 +15,7 @@ const Hero = () => {
         // Fallback - keep this just in case API is down
         setPortfolioData({
           name: "Jesus T.",
-          bio: "I build web experiences focused on accessibility and speed. I've started my software engineer career to help my ideas come true."
+          bio: "Someone who has worked hard to transition into software engineering. I actively seek out new opportunities to learn and grow."
         });
       });
   }, []);
@@ -33,7 +33,7 @@ const Hero = () => {
               {portfolioData.name}
             </h1>
             <h2 className="hero-subtitle">
-              Cloud Engineer | Software engineer
+              Software Engineer
             </h2>
           </div>
           
@@ -56,7 +56,7 @@ const Hero = () => {
           <div className="hero-image-wrapper">
             <div className="hero-image">
               <img 
-                src="/images/me.jpeg" 
+                src="/images/me.png" 
                 alt="Jesus T." 
               />
             </div>
