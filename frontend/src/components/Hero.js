@@ -15,7 +15,7 @@ const Hero = () => {
         // Fallback - keep this just in case API is down
         setPortfolioData({
           name: "Jesus T.",
-          bio: "Someone who has worked hard to transition into software engineering. I actively seek out new opportunities to learn and grow."
+          bio: "I'm a Software Engineer with AWS Certified Cloud Practitioner credentials. I specialize in building scalable, secure applications using JavaScript, React, and Node.js, with a passion for designing robust cloud infrastructure and implementing effective monitoring solutions."
         });
       });
   }, []);

@@ -51,17 +51,17 @@ const About = () => {
   ];
 
   const education = [
-    {
-      id: 1,
-      institution: "General Assembly",
-      degree: "Software Engineer Bootcamp",
-      duration: "Graduated",
-      location: "New York, NY",
-      details: [
-        "Concentrations: Full-Stack Development",
-        "Object-Oriented Programming, Computing in JS & Python, HTML/CSS, Node, Mathematics, AI"
-      ]
-    },
+    // {
+    //   id: 1,
+    //   institution: "General Assembly",
+    //   degree: "Software Engineer Bootcamp",
+    //   duration: "Graduated",
+    //   location: "New York, NY",
+    //   details: [
+    //     "Concentrations: Full-Stack Development",
+    //     "Object-Oriented Programming, Computing in JS & Python, HTML/CSS, Node, Mathematics, AI"
+    //   ]
+    // },
     {
       id: 2,
       institution: "Spring Creek Community School",

@@ -7,7 +7,7 @@ const Certifications = () => {
     {
       id: 1,
       name: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon",
+      issuer: "Amazon - AWS Certification",
       date: "April 3, 2025"
     },
     {
