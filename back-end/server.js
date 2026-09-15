@@ -3,6 +3,8 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY || '');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -18,6 +20,22 @@ const contactLimiter = rateLimit({
   legacyHeaders: false,
   message: { error: 'Too many messages sent. Please try again later.' }
 });
+
+const checkoutLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests. Please try again later.' }
+});
+
+// Fixed price tiers - kept server-side so the charged amount can never be
+// tampered with from the client (never trust a price sent from the browser).
+const PRICING_TIERS = {
+  'landing-page': { name: 'Landing Page', amount: 45000 },   // $450.00
+  'business-site': { name: 'Business Site', amount: 95000 }, // $950.00
+  'full-stack-app': { name: 'Full-Stack App (deposit)', amount: 200000 } // $2,000.00
+};
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PROJECT_TYPES = ['website', 'software', 'custom-tool', 'other'];
@@ -256,6 +274,44 @@ app.post('/api/contact', contactLimiter, (req, res) => {
 
   // Send success response
   res.json(successResponse);
+});
+
+// Stripe Checkout endpoint
+app.post('/api/create-checkout-session', checkoutLimiter, async (req, res) => {
+  const { tier } = req.body;
+  const selectedTier = PRICING_TIERS[tier];
+
+  if (!selectedTier) {
+    return res.status(400).json({ error: 'Invalid pricing tier selected' });
+  }
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return res.status(503).json({ error: 'Payments are not set up yet. Please use the contact form instead.' });
+  }
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: { name: selectedTier.name },
+            unit_amount: selectedTier.amount
+          },
+          quantity: 1
+        }
+      ],
+      success_url: `${allowedOrigin}/payment-success?tier=${tier}`,
+      cancel_url: `${allowedOrigin}/#pricing`
+    });
+
+    res.json({ url: session.url });
+  } catch (error) {
+    console.error('Stripe checkout session error:', error);
+    res.status(500).json({ error: 'Something went wrong starting checkout. Please try again.' });
+  }
 });
 
 app.listen(PORT, () => {
