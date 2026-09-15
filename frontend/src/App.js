@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Certifications from './components/Certifications';
 import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -36,16 +35,11 @@ function App() {
     }
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
     <div className="app">
-      <Header toggleDarkMode={toggleDarkMode} />
+      <Header />
       <Hero />
       <Projects />
-      <Certifications />
       <About />
       <Contact />
       <Footer />

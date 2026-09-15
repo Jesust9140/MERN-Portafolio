@@ -3,6 +3,9 @@ import '../css/About.css';
 
 const About = () => {
   // TODO: pull this from API endpoint later so I can update without redeploying
+  // Former resume content (Education / Work History / Skills) — kept here in case
+  // we want to bring back a resume-style About section later.
+  /*
   const experience = [
     {
       id: 1,
@@ -51,17 +54,6 @@ const About = () => {
   ];
 
   const education = [
-    // {
-    //   id: 1,
-    //   institution: "General Assembly",
-    //   degree: "Software Engineer Bootcamp",
-    //   duration: "Graduated",
-    //   location: "New York, NY",
-    //   details: [
-    //     "Concentrations: Full-Stack Development",
-    //     "Object-Oriented Programming, Computing in JS & Python, HTML/CSS, Node, Mathematics, AI"
-    //   ]
-    // },
     {
       id: 2,
       institution: "Spring Creek Community School",
@@ -89,100 +81,41 @@ const About = () => {
       "Team Leadership, Training, & Mentorship"
     ]
   };
+  */
+
+  const services = [
+    {
+      id: 1,
+      title: "Custom-built sites",
+      description: "No drag-and-drop templates — every site is coded from scratch to match your business and your brand."
+    },
+    {
+      id: 2,
+      title: "Full-stack, not just templates",
+      description: "React/Vite on the frontend, Node/Express/Mongoose on the backend — real applications with real functionality: forms, scheduling, logins, and more."
+    },
+    {
+      id: 3,
+      title: "Fast turnaround & real support",
+      description: "Deployed, tested, and live quickly — and I stick around after launch to fix issues or add features as your business grows."
+    }
+  ];
 
   return (
     <section id="about" className="about-section">
       <div className="about-container">
-        <h2 className="about-title">About Me</h2>
-        
-        <div className="about-grid">
-          {/* Left Column: Education & Experience */}
-          <div className="about-left">
-            {/* Education */}
-            <div className="about-education">
-              <h3 className="about-subtitle">Education</h3>
-              <div className="timeline timeline-education">
-                {education.map((edu) => (
-                  <div key={edu.id} className="timeline-item">
-                    <div className="timeline-dot education-dot"></div>
-                    <div className="timeline-content">
-                      <h4 className="timeline-degree">
-                        {edu.degree}
-                      </h4>
-                      <p className="timeline-school">
-                        {edu.institution}
-                      </p>
-                      <p className="timeline-duration">
-                        {edu.duration}
-                      </p>
-                      <ul className="timeline-list">
-                        {edu.details.map((detail, index) => (
-                          <li key={index}>• {detail}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <h2 className="about-title">What I do</h2>
+        <p className="about-intro">
+          I build custom websites and web apps for small businesses — from the first line of code to a live site your customers can use.
+        </p>
 
-            {/* Experience */}
-            <div className="about-experience">
-              <h3 className="about-subtitle">Work History</h3>
-              <div className="timeline">
-                {experience.map((job) => (
-                  <div key={job.id} className="timeline-item">
-                    <div className="timeline-dot"></div>
-                    <div className="timeline-content">
-                      <h4 className="timeline-position">
-                        {job.position}
-                      </h4>
-                      <p className="timeline-company">
-                        {job.company}
-                      </p>
-                      <p className="timeline-duration">
-                        {job.duration}
-                      </p>
-                      <ul className="timeline-list">
-                        {job.responsibilities.map((resp, index) => (
-                          <li key={index}>• {resp}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        <div className="about-grid">
+          {services.map((service) => (
+            <div key={service.id} className="about-left">
+              <h3 className="about-subtitle">{service.title}</h3>
+              <p>{service.description}</p>
             </div>
-          </div>
-          
-          {/* Right Column: Skills */}
-          <div className="about-right">
-            <div className="about-skills">
-              <h3 className="about-subtitle">Technical Skills</h3>
-              <div className="skills-list">
-                {skills.technical && skills.technical.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-dot technical"></div>
-                    <div className="skill-text">
-                      {skill}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <h3 className="about-subtitle skills-professional-title">Professional Skills</h3>
-              <div className="skills-list">
-                {skills.professional && skills.professional.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <div className="skill-dot professional"></div>
-                    <div className="skill-text">
-                      {skill}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

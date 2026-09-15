@@ -34,19 +34,23 @@ html, body {
 
 :root {
   --color-bg-light: #ffffff;
-  --color-bg-dark: #000000;
+  --color-bg-dark: #0a0a0a;
+  --color-surface-dark: #1a1a1a;
   --color-text-light: #000000;
   --color-text-dark: #ffffff;
   --color-text-secondary-light: #4b5563;
-  --color-text-secondary-dark: #d1d5db;
+  --color-text-secondary-dark: #737373;
   --color-border-light: #d1d5db;
-  --color-border-dark: #374151;
-  --color-primary: #2563eb;
+  --color-border-dark: #1f2937;
+  --color-primary: #3b82f6;
+  --color-primary-alt: #8b5cf6;
   --color-primary-light: #dbeafe;
   --color-primary-dark: #1e3a8a;
   --color-success: #16a34a;
   --color-success-light: #bbf7d0;
   --transition-speed: 0.3s;
+  --max-width: 1280px;
+  --section-padding-y: 80px;
 }
 
 /* ============================================
