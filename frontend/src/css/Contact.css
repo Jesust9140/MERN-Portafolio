@@ -112,6 +112,15 @@ html.dark .contact-link {
   gap: 16px;
 }
 
+/* Honeypot - visually hidden but still present/focusable to bots, unlike display:none */
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

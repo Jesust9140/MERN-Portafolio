@@ -1,13 +1,28 @@
 const express = require('express');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000';
+app.use(cors({ origin: allowedOrigin }));
 app.use(express.json());
+
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many messages sent. Please try again later.' }
+});
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PROJECT_TYPES = ['website', 'software', 'custom-tool', 'other'];
+
+const stripHtml = (value) => value.replace(/<[^>]*>/g, '');
 
 // Root route
 app.get('/', (req, res) => {
@@ -188,27 +203,59 @@ app.get('/api/skills', (req, res) => {
 });
 
 // Contact form endpoint
-app.post('/api/contact', (req, res) => {
-  const { name, email, message } = req.body;
+app.post('/api/contact', contactLimiter, (req, res) => {
+  const { name, email, message, projectType, company } = req.body;
+
+  const successResponse = {
+    success: true,
+    message: 'Message received! I will get back to you soon.'
+  };
+
+  // Honeypot - real users never see/fill this field, so if it's filled the
+  // submission is almost certainly a bot. Pretend success without processing
+  // it further so the bot doesn't learn the submission was rejected.
+  if (company) {
+    return res.json(successResponse);
+  }
 
   // Validate input
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
+  const trimmedName = String(name).trim();
+  const trimmedEmail = String(email).trim();
+  const trimmedMessage = String(message).trim();
+
+  if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  if (trimmedName.length > 100) {
+    return res.status(400).json({ error: 'Name is too long' });
+  }
+
+  if (!EMAIL_REGEX.test(trimmedEmail)) {
+    return res.status(400).json({ error: 'Please enter a valid email address' });
+  }
+
+  if (trimmedMessage.length > 2000) {
+    return res.status(400).json({ error: 'Message is too long' });
+  }
+
+  const safeProjectType = PROJECT_TYPES.includes(projectType) ? projectType : '';
+
   // Log the message (in production, send email or save to database)
   console.log('New contact message:', {
-    name,
-    email,
-    message,
+    name: stripHtml(trimmedName),
+    email: trimmedEmail,
+    projectType: safeProjectType,
+    message: stripHtml(trimmedMessage),
     timestamp: new Date().toISOString()
   });
 
   // Send success response
-  res.json({ 
-    success: true, 
-    message: 'Message received! I will get back to you soon.' 
-  });
+  res.json(successResponse);
 });
 
 app.listen(PORT, () => {

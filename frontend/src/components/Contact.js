@@ -6,7 +6,8 @@ const Contact = () => {
     name: '',
     email: '',
     projectType: '',
-    message: ''
+    message: '',
+    company: '' // honeypot - real users never see or fill this in
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -35,7 +36,7 @@ const Contact = () => {
 
       if (response.ok) {
         setSubmitted(true);
-        setFormData({ name: '', email: '', projectType: '', message: '' });
+        setFormData({ name: '', email: '', projectType: '', message: '', company: '' });
         setTimeout(() => setSubmitted(false), 5000);
         // TODO: maybe send an email notification too when this works out
       }
@@ -86,6 +87,20 @@ const Contact = () => {
           {/* Right: Form */}
           <div className="contact-form-wrapper">
             <form onSubmit={handleSubmit} className="contact-form">
+              {/* Honeypot field - hidden from real users, bots tend to fill it in */}
+              <div className="form-honeypot" aria-hidden="true">
+                <label htmlFor="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="form-row">
                 <input
                   type="text"

@@ -13,6 +13,9 @@ const Header = () => {
           <a href="#projects" className="header-nav-link">
             Work
           </a>
+          <a href="#templates" className="header-nav-link">
+            Templates
+          </a>
           <a href="#about" className="header-nav-link">
             Services
           </a>
