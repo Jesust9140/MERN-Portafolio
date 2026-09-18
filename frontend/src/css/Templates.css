@@ -1,6 +1,6 @@
 /* Templates Section */
 .templates-section {
-  padding: 80px 24px;
+  padding: 80px 24px 24px;
   background-color: #ffffff;
   transition: background-color 0.3s;
 }
@@ -74,15 +74,20 @@ html.dark .templates-intro {
 /* Card */
 .template-card {
   display: block;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .template-card-image-wrapper {
+  display: block;
+  width: 100%;
+  position: relative;
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 16px;
   background-color: #d1d5db;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
   transition: background-color 0.3s;
 }
 
@@ -90,7 +95,13 @@ html.dark .template-card-image-wrapper {
   background-color: #1a1a1a;
 }
 
+.template-card-image-wrapper:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
 .template-card-image {
+  display: block;
   width: 100%;
   height: 256px;
   object-fit: cover;
@@ -98,9 +109,29 @@ html.dark .template-card-image-wrapper {
   transition: opacity 0.3s, transform 0.3s;
 }
 
-.template-card:hover .template-card-image {
+.template-card-image-wrapper:hover .template-card-image {
   opacity: 1;
   transform: scale(1.03);
+}
+
+.template-card-zoom-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.45);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.template-card-image-wrapper:hover .template-card-zoom-hint,
+.template-card-image-wrapper:focus-visible .template-card-zoom-hint {
+  opacity: 1;
 }
 
 .template-card-title {
@@ -124,4 +155,137 @@ html.dark .template-card-title {
 
 html.dark .template-card-category {
   color: #737373;
+}
+
+.template-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background-color: rgba(10, 10, 10, 0.75);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.template-card-cta {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.template-card-cta:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Lightbox */
+.template-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 10, 10, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: template-lightbox-fade 0.2s ease-out;
+}
+
+@keyframes template-lightbox-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.template-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.template-lightbox-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.template-lightbox-content {
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #1f2937;
+}
+
+.template-lightbox-image {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  background-color: #0a0a0a;
+  display: block;
+}
+
+.template-lightbox-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.template-lightbox-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.template-lightbox-category {
+  font-size: 13px;
+  color: #737373;
+  margin: 0;
+}
+
+.template-lightbox-link {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.template-lightbox-link:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .template-lightbox-image {
+    max-height: 50vh;
+  }
 }

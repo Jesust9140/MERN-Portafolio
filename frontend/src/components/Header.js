@@ -10,19 +10,19 @@ const Header = () => {
         </div>
 
         <div className="header-nav-links">
-          <a href="#projects" className="header-nav-link">
+          <a href="/#projects" className="header-nav-link">
             Work
           </a>
-          <a href="#templates" className="header-nav-link">
+          <a href="/#templates" className="header-nav-link">
             Templates
           </a>
-          <a href="#about" className="header-nav-link">
+          <a href="/#about" className="header-nav-link">
             Services
           </a>
-          <a href="#pricing" className="header-nav-link">
+          <a href="/#pricing" className="header-nav-link">
             Pricing
           </a>
-          <a href="#contact" className="header-nav-link">
+          <a href="/#contact" className="header-nav-link">
             Contact
           </a>
         </div>

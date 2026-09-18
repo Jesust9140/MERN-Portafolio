@@ -10,7 +10,7 @@ const Pricing = () => {
       id: 1,
       tierKey: "landing-page",
       name: "Landing Page",
-      price: "$450",
+      price: "$600",
       description: "A single, high-converting page to get your business online fast.",
       features: [
         "Custom-designed single page",
@@ -26,7 +26,7 @@ const Pricing = () => {
       id: 2,
       tierKey: "business-site",
       name: "Business Site",
-      price: "$950",
+      price: "$1,200",
       description: "A full multi-page site for a growing business.",
       features: [
         "Up to 5 pages",
@@ -41,9 +41,27 @@ const Pricing = () => {
     },
     {
       id: 3,
+      tierKey: "growth-site",
+      name: "Growth Site",
+      price: "$1,800",
+      description: "A larger site with more pages and features for a business that's scaling up.",
+      features: [
+        "Up to 10 pages",
+        "Custom design, no templates",
+        "Booking/quote form with email notifications",
+        "Blog or gallery section",
+        "Mobile-responsive layout",
+        "Basic SEO setup",
+        "3 rounds of revisions"
+      ],
+      highlighted: false,
+      payable: true
+    },
+    {
+      id: 4,
       tierKey: "full-stack-app",
       name: "Full-Stack App",
-      price: "From $2,000",
+      price: "From $2,800",
       description: "A custom web application with real functionality — logins, databases, and more.",
       features: [
         "Custom frontend and backend",

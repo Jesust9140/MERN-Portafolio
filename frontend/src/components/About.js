@@ -98,6 +98,18 @@ const About = () => {
       id: 3,
       title: "Fast turnaround & real support",
       description: "Deployed, tested, and live quickly — and I stick around after launch to fix issues or add features as your business grows."
+    },
+    {
+      id: 4,
+      title: "Custom tools",
+      description: "Not sure what \"custom tool\" means? Here's a few examples:",
+      examples: [
+        "Online booking & scheduling systems",
+        "Inventory & order tracking",
+        "Admin dashboards & internal reports",
+        "Automated email/notification workflows",
+        "Customer accounts & login systems"
+      ]
     }
   ];
 
@@ -114,6 +126,13 @@ const About = () => {
             <div key={service.id} className="about-left">
               <h3 className="about-subtitle">{service.title}</h3>
               <p>{service.description}</p>
+              {service.examples && (
+                <ul className="about-examples">
+                  {service.examples.map((example, index) => (
+                    <li key={index}>{example}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
