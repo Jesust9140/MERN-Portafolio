@@ -35,7 +35,7 @@ const Projects = () => {
       ],
       technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "PayPal", "Steam API", "JWT", "TailwindCSS"],
       github: "https://github.com/Jesust9140",
-      demo: "https://lootdrop.vercel.app/",
+      demo: "https://skinbastion.com",
       featured: true,
       images: ["/images/skinbastion1.png", "/images/home1.png", "/images/loginout2.png", "/images/market.png"],
       duration: "May 15th, 2025 - 80% Complete"

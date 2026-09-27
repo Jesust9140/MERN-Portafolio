@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/Pricing.css';
 
 const Pricing = () => {
   const [loadingTier, setLoadingTier] = useState(null);
   const [error, setError] = useState('');
+
+  // Clears the "Redirecting..." state when the page is restored from the
+  // browser cache (e.g. the user hits Back after reaching Stripe Checkout) -
+  // otherwise the button stays stuck since that navigation never re-runs
+  // this component's normal mount logic.
+  useEffect(() => {
+    const handlePageShow = (e) => {
+      if (e.persisted) {
+        setLoadingTier(null);
+      }
+    };
+    window.addEventListener('pageshow', handlePageShow);
+    return () => window.removeEventListener('pageshow', handlePageShow);
+  }, []);
 
   const tiers = [
     {
