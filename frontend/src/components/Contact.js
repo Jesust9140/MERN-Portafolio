@@ -38,7 +38,6 @@ const Contact = () => {
         setSubmitted(true);
         setFormData({ name: '', email: '', projectType: '', message: '', company: '' });
         setTimeout(() => setSubmitted(false), 5000);
-        // TODO: maybe send an email notification too when this works out
       }
     } catch (error) {
       console.error('Error sending message:', error);

@@ -177,14 +177,22 @@ html.dark .template-card-category {
   margin-top: 10px;
   font-size: 13px;
   font-weight: 600;
-  color: #3b82f6;
+  color: #1f2937;
   text-decoration: none;
   transition: color 0.3s;
 }
 
+html.dark .template-card-cta {
+  color: #e5e5e5;
+}
+
 .template-card-cta:hover {
-  color: #2563eb;
+  color: #111827;
   text-decoration: underline;
+}
+
+html.dark .template-card-cta:hover {
+  color: #ffffff;
 }
 
 /* Lightbox */

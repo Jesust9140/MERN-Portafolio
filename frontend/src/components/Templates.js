@@ -51,11 +51,9 @@ const Templates = () => {
               </button>
               <h3 className="template-card-title">{template.name}</h3>
               <p className="template-card-category">{template.category}</p>
-              {!template.demo && (
-                <a href="#contact" className="template-card-cta">
-                  Want one like this? Email me →
-                </a>
-              )}
+              <a href="#contact" className="template-card-cta">
+                Want one like this? Email me →
+              </a>
             </div>
           ))}
         </div>
